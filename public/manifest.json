@@ -1,0 +1,10 @@
+{
+  "name": "Trexx IT Pro - Future of Connectivity",
+  "short_name": "Trexx IT Pro",
+  "description": "Experience lightning-fast fiber optic internet",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0C15",
+  "theme_color": "#03BFFF",
+  "icons": []
+}
