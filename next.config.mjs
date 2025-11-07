@@ -4,6 +4,7 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   compress: true,
+  output: 'standalone',
 };
 
 export default nextConfig;
