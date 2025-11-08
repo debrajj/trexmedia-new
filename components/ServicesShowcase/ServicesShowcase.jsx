@@ -133,8 +133,17 @@ const ServicesShowcase = () => {
             <PixelCard
               key={service.id}
               variant={variants[index]}
-              className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group"
+              className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group relative"
             >
+              {/* Launching Soon Badge */}
+              {service.comingSoon && (
+                <div className="absolute top-2 right-2 z-20">
+                  <span className="inline-block bg-yellow-500 text-white pl-3 pr-1.5 py-0.5 rounded text-xs font-medium whitespace-nowrap shadow-sm">
+                    Launching Soon
+                  </span>
+                </div>
+              )}
+              
               <div className="relative p-4 md:p-8 h-full">
                 <div className="w-12 h-12 md:w-20 md:h-20 mb-2 md:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <ServiceIcon type={service.icon} id={service.id} />

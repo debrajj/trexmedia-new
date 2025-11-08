@@ -23,10 +23,11 @@ const Hero = () => {
       <div className="relative z-10 px-0 pt-10 md:hidden">
         <div className="aspect-[16/9] w-full">
           <DotLottieReact
-            src="https://lottie.host/a3b896b4-430c-4755-a470-7dc5b41f98c5/vJERKBqUhf.lottie"
-            loop
-            autoplay
+            src="/mobile_hero.lottie"
+            loop={false}
+            autoplay={true}
             className="w-full h-full"
+            speed={0.5}
           />
         </div>
       </div>
@@ -35,10 +36,11 @@ const Hero = () => {
       <div className="relative z-10 max-w-5xl mx-auto px-4 -mt-96 hidden md:block">
         <div className="aspect-[16/9] w-full">
           <DotLottieReact
-            src="https://lottie.host/19775748-e6a6-45a5-8a89-170ec98ea4fd/V6yXEhioHq.lottie"
-            loop
-            autoplay
+            src="/desktop_hero.lottie"
+            loop={false}
+            autoplay={true}
             className="w-full h-full"
+            speed={0.5}
           />
         </div>
       </div>

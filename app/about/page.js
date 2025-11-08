@@ -35,7 +35,7 @@ const AboutPage = () => {
         <Header />
         
         {/* Hero Section */}
-        <Section className="pt-[8rem]" crosses>
+        <Section className="pt-0" crosses>
           <div className="container">
             <Heading
               tag="About Us"

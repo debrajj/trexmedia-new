@@ -4,14 +4,14 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { ispServices } from "@/constants";
 
 const ServiceCard = ({ service, index }) => {
-  // Real working Lottie URLs from LottieFiles
+  // Local Lottie files
   const lottieUrls = {
-    "0": "https://lottie.host/4c8d8c8e-1c4a-4f6e-8b5a-9c8e0e0e0e0e/wifi-animation.json", // WiFi
-    "1": "https://lottie.host/19775748-e6a6-45a5-8a89-170ec98ea4fd/V6yXEhioHq.lottie", // Camera
-    "2": "https://lottie.host/embed/b9e0e0e5-1c4a-4f6e-8b5a-9c8e0e0e0e0e/cloud.json", // Cloud
-    "3": "https://lottie.host/embed/c1f0e0e5-1c4a-4f6e-8b5a-9c8e0e0e0e0e/server.json", // Server
-    "4": "https://lottie.host/embed/d2g0e0e5-1c4a-4f6e-8b5a-9c8e0e0e0e0e/code.json", // Code
-    "5": "https://lottie.host/embed/e3h0e0e5-1c4a-4f6e-8b5a-9c8e0e0e0e0e/desktop.json", // Desktop
+    "0": "/lottie/wifi.json", // WiFi
+    "1": "/lottie/camera.lottie", // Camera
+    "2": "/lottie/cloud.json", // Cloud
+    "3": "/lottie/server.json", // Server
+    "4": "/lottie/code.json", // Code
+    "5": "/lottie/desktop.json", // Desktop
   };
 
   return (
@@ -28,13 +28,24 @@ const ServiceCard = ({ service, index }) => {
       
       {/* Card */}
       <div className="relative bg-n-8/80 backdrop-blur-sm border border-n-6 rounded-2xl p-8 h-full transition-all duration-300 group-hover:border-color-1/50">
+        {/* Launching Soon Badge */}
+        {service.comingSoon && (
+          <div className="absolute top-3 right-3 z-20">
+            <span className="inline-block bg-yellow-500 text-white pl-4 pr-2 py-1 rounded-md text-xs font-medium whitespace-nowrap shadow-sm">
+              Launching Soon
+            </span>
+          </div>
+        )}
+
         {/* Lottie Animation */}
         <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
           <DotLottieReact
             src={lottieUrls[service.id]}
-            loop
-            autoplay
+            loop={false}
+            autoplay={false}
             className="w-full h-full"
+            onMouseEnter={(e) => e.target?.play?.()}
+            onMouseLeave={(e) => e.target?.pause?.()}
           />
         </div>
         
@@ -81,7 +92,7 @@ const ServicesWithLottie = () => {
         {/* Services grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ispServices.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+            <ServiceCard key={`${service.id}-v2`} service={service} index={index} />
           ))}
         </div>
       </div>

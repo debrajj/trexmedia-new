@@ -126,7 +126,7 @@ const ServicesPage = () => {
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
         <Header />
         
-        <Section className="pt-[8rem]" crosses>
+        <Section className="pt-0" crosses>
           <div className="container">
             <Heading
               tag="Our Services"
@@ -139,8 +139,17 @@ const ServicesPage = () => {
                 <PixelCard
                   key={service.id}
                   variant={variants[index]}
-                  className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group"
+                  className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group relative"
                 >
+                  {/* Launching Soon Badge */}
+                  {service.comingSoon && (
+                    <div className="absolute top-3 right-3 z-20">
+                      <span className="inline-block bg-yellow-500 text-white pl-4 pr-2 py-1 rounded-md text-xs font-medium whitespace-nowrap shadow-sm">
+                        Launching Soon
+                      </span>
+                    </div>
+                  )}
+                  
                   <div className="relative p-8 h-full">
                     <div className="w-20 h-20 mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                       <ServiceIcon type={service.icon} id={service.id} />

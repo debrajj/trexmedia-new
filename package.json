@@ -5,11 +5,15 @@
   "description": "Futuristic ISP website with dark mode and glowing effects",
   "scripts": {
     "dev": "next dev",
+    "dev:turbo": "next dev --turbo",
+    "dev:fresh": "node clear-cache.js && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",
-    "build:prod": "NODE_ENV=production next build"
+    "build:prod": "NODE_ENV=production next build",
+    "optimize": "npm run build && npm run start",
+    "clear-cache": "node clear-cache.js"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.17.6",

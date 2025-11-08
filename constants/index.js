@@ -30,12 +30,12 @@ const {
   roadmap2,
   roadmap3,
   roadmap4,
+  fibreAi1,
   searchMd,
   slack,
   sliders04,
   telegram,
   twitter,
-  yourlogo,
 } = assets;
 
 export const navigation = [
@@ -75,7 +75,7 @@ export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
 
-export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
+export const companyLogos = [];
 
 export const trexxITProServices = [
   "High-Speed Internet",
@@ -119,6 +119,7 @@ export const ispServices = [
     title: "Gaming PC Setup",
     description: "Custom gaming PC builds, optimization, and high-performance setup services.",
     icon: "desktop",
+    comingSoon: true,
   },
 ];
 
@@ -137,7 +138,7 @@ export const roadmap = [
     text: "Expanding our fiber optic network to reach more neighborhoods and businesses, delivering gigabit speeds to your doorstep.",
     date: "Q1 2025",
     status: "progress",
-    imageUrl: roadmap1,
+    imageUrl: fibreAi1,
     colorful: true,
   },
   {
@@ -294,7 +295,6 @@ export const benefits = [
     id: "0",
     title: "Lightning Fast",
     text: "Experience blazing-fast internet speeds with our fiber optic network infrastructure.",
-    backgroundUrl: "../app/assets/benefits/card-1.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
   },
@@ -302,7 +302,6 @@ export const benefits = [
     id: "1",
     title: "24/7 Support",
     text: "Our expert technical team is available round the clock to assist you with any issues.",
-    backgroundUrl: "../app/assets/benefits/card-2.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
     light: true,
@@ -311,7 +310,6 @@ export const benefits = [
     id: "2",
     title: "Reliable Connection",
     text: "99.9% uptime guarantee with redundant systems ensuring you stay connected always.",
-    backgroundUrl: "../app/assets/benefits/card-3.svg",
     iconUrl: benefitIcon3,
     imageUrl: benefitImage2,
   },
@@ -319,7 +317,6 @@ export const benefits = [
     id: "3",
     title: "Secure Network",
     text: "Advanced security protocols and encryption to protect your data and privacy.",
-    backgroundUrl: "../app/assets/benefits/card-4.svg",
     iconUrl: benefitIcon4,
     imageUrl: benefitImage2,
     light: true,
@@ -328,7 +325,6 @@ export const benefits = [
     id: "4",
     title: "Scalable Solutions",
     text: "Flexible plans that grow with your needs, from home to enterprise level.",
-    backgroundUrl: "../app/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
   },
@@ -336,7 +332,6 @@ export const benefits = [
     id: "5",
     title: "Smart Technology",
     text: "AI-powered network optimization for the best performance at all times.",
-    backgroundUrl: "../app/assets/benefits/card-6.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
   },

@@ -17,7 +17,7 @@ const Roadmap = () => {
               const status = item.status === "done" ? "Done" : "In progress";
               return (
                 <div
-                  key={item.id}
+                  key={`roadmap-${item.id}-v3`}
                   className="md:flex even:md:translate-y-[7rem] p-0.25 rounded-[2.5rem] hover:scale-105 transition-transform duration-300"
                 >
                   <div className="relative p-8 bg-n-8 rounded-[2rem] overflow-hidden xl:p-15 border border-n-6 hover:border-color-1/50 transition-colors duration-300">
@@ -42,13 +42,17 @@ const Roadmap = () => {
 
                     <div className="relative z-1">
                       <div className="mb-10 -my-10 -mx-15 rounded-xl overflow-hidden">
-                        <Image
-                          src={item.imageUrl}
-                          alt={item.title}
-                          width={630}
-                          height={420}
-                          className="w-full h-auto"
-                        />
+                        <div className="aspect-[4/5] w-full">
+                          <Image
+                            src={item.imageUrl}
+                            alt={item.title}
+                            width={630}
+                            height={787}
+                            className="w-full h-full object-cover"
+                            priority={item.id === "0"}
+                            unoptimized={process.env.NODE_ENV === 'development'}
+                          />
+                        </div>
                       </div>
                       <h4 className="h4 mb-4">{item.title}</h4>
                       <p className="body-2 text-n-4 mb-6">{item.text}</p>

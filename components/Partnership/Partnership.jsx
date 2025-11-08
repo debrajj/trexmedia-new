@@ -44,22 +44,16 @@ const Partnership = () => {
             
             <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
               
-              {/* Left: RailWire Logo - Train Station Style */}
+              {/* Left: RailWire Logo */}
               <div className="relative">
                 <div className="relative flex justify-center">
-                  {/* Train Car Style Container */}
-                  <div className="relative bg-white rounded-2xl p-8 shadow-2xl border-4 border-n-6/20">
-                    {/* Train Car Details */}
-                    <div className="absolute -top-2 left-4 right-4 h-4 bg-gradient-to-r from-n-6/30 via-n-5/30 to-n-6/30 rounded-t-lg"></div>
-                    <div className="absolute -bottom-3 left-8 w-6 h-6 bg-n-7 rounded-full border-2 border-n-6"></div>
-                    <div className="absolute -bottom-3 right-8 w-6 h-6 bg-n-7 rounded-full border-2 border-n-6"></div>
-                    
+                  <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
                     <Image 
-                      src={assets.railwire} 
+                      src={assets.railwireNew} 
                       alt="RailWire" 
                       width={220} 
                       height={140}
-                      className="object-contain relative z-10"
+                      className="object-contain"
                     />
                   </div>
                 </div>

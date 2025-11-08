@@ -32,7 +32,7 @@ const ContactPage = () => {
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
         <Header />
         
-        <Section className="pt-[8rem]" crosses>
+        <Section className="pt-0" crosses>
           <div className="container">
             <Heading
               tag="Contact Us"

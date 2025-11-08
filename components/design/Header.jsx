@@ -33,18 +33,7 @@ export const HambugerMenu = () => {
   return (
     <div className="absolute inset-0 pointer-events-none lg:hidden">
       <div className="absolute inset-0 opacity-[.03]">
-        <Image
-          src={assets.background}
-          alt="Background"
-          className="w-full h-full object-cover"
-        />
-        {/* <img
-          className="w-full h-full object-cover"
-          src={background}
-          width={688}
-          height={953}
-          alt="Background"
-        /> */}
+        <div className="w-full h-full bg-gradient-to-br from-n-8 via-n-7 to-n-8"></div>
       </div>
 
       <Rings />

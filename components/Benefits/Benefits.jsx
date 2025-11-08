@@ -3,7 +3,7 @@ import React from "react";
 import Section from "../Section";
 import Heading from "../Heading";
 import { benefits } from "@/constants";
-import "./Benefits.scss";
+
 import PixelCard from "../ui/PixelCard";
 
 const BenefitIcon = ({ type, id }) => {
@@ -13,9 +13,9 @@ const BenefitIcon = ({ type, id }) => {
     // Lightning Fast
     lightning: (
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g className="animate-pulse">
+        <g>
           <path d="M35 8L20 36H32L29 56L48 28H36L35 8Z" fill={`url(#${gradientId})`} stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="35" cy="8" r="3" fill="#FFD700" className="animate-ping" />
+          <circle cx="35" cy="8" r="3" fill="#FFD700" />
         </g>
         <defs>
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -29,10 +29,10 @@ const BenefitIcon = ({ type, id }) => {
     support: (
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
-          <circle cx="32" cy="32" r="20" stroke={`url(#${gradientId})`} strokeWidth="3" fill="none" className="animate-[spin_8s_linear_infinite]" />
+          <circle cx="32" cy="32" r="20" stroke={`url(#${gradientId})`} strokeWidth="3" fill="none" />
           <path d="M32 12V16M32 48V52M52 32H48M16 32H12" stroke={`url(#${gradientId})`} strokeWidth="3" strokeLinecap="round" />
           <circle cx="32" cy="28" r="8" stroke={`url(#${gradientId})`} strokeWidth="2" fill="none" />
-          <path d="M26 42C26 42 28 38 32 38C36 38 38 42 38 42" stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
+          <path d="M26 42C26 42 28 38 32 38C36 38 38 42 38 42" stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" />
           <circle cx="29" cy="27" r="1.5" fill="#03BFFF" />
           <circle cx="35" cy="27" r="1.5" fill="#03BFFF" />
         </g>
@@ -48,10 +48,10 @@ const BenefitIcon = ({ type, id }) => {
     connection: (
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
-          <circle cx="16" cy="32" r="6" fill={`url(#${gradientId})`} className="animate-pulse" />
-          <circle cx="48" cy="32" r="6" fill={`url(#${gradientId})`} className="animate-pulse" />
-          <path d="M22 32H42" stroke={`url(#${gradientId})`} strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" className="animate-[pulse_2s_ease-in-out_infinite]" />
-          <circle cx="32" cy="32" r="3" fill="#03BFFF" className="animate-ping" />
+          <circle cx="16" cy="32" r="6" fill={`url(#${gradientId})`} />
+          <circle cx="48" cy="32" r="6" fill={`url(#${gradientId})`} />
+          <path d="M22 32H42" stroke={`url(#${gradientId})`} strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" />
+          <circle cx="32" cy="32" r="3" fill="#03BFFF" />
           <path d="M16 20L16 44M48 20L48 44" stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" />
         </g>
         <defs>
@@ -67,8 +67,8 @@ const BenefitIcon = ({ type, id }) => {
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
           <path d="M32 8L16 16V28C16 40 24 50 32 56C40 50 48 40 48 28V16L32 8Z" stroke={`url(#${gradientId})`} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M32 8L16 16V28C16 40 24 50 32 56C40 50 48 40 48 28V16L32 8Z" fill={`url(#${gradientId})`} fillOpacity="0.2" className="animate-pulse" />
-          <path d="M26 30L30 34L38 26" stroke="#03BFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="animate-[pulse_2s_ease-in-out_infinite]" />
+          <path d="M32 8L16 16V28C16 40 24 50 32 56C40 50 48 40 48 28V16L32 8Z" fill={`url(#${gradientId})`} fillOpacity="0.2" />
+          <path d="M26 30L30 34L38 26" stroke="#03BFFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         </g>
         <defs>
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -100,11 +100,11 @@ const BenefitIcon = ({ type, id }) => {
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
           <circle cx="32" cy="32" r="16" stroke={`url(#${gradientId})`} strokeWidth="3" fill="none" />
-          <circle cx="32" cy="32" r="8" fill={`url(#${gradientId})`} className="animate-pulse" />
-          <circle cx="32" cy="12" r="3" fill="#03BFFF" className="animate-ping" />
-          <circle cx="52" cy="32" r="3" fill="#03BFFF" className="animate-[ping_2s_ease-in-out_infinite_0.2s]" />
-          <circle cx="32" cy="52" r="3" fill="#03BFFF" className="animate-[ping_2s_ease-in-out_infinite_0.4s]" />
-          <circle cx="12" cy="32" r="3" fill="#03BFFF" className="animate-[ping_2s_ease-in-out_infinite_0.6s]" />
+          <circle cx="32" cy="32" r="8" fill={`url(#${gradientId})`} />
+          <circle cx="32" cy="12" r="3" fill="#03BFFF" />
+          <circle cx="52" cy="32" r="3" fill="#03BFFF" />
+          <circle cx="32" cy="52" r="3" fill="#03BFFF" />
+          <circle cx="12" cy="32" r="3" fill="#03BFFF" />
           <path d="M32 20V24M32 40V44M44 32H40M24 32H20" stroke={`url(#${gradientId})`} strokeWidth="2" strokeLinecap="round" />
         </g>
         <defs>

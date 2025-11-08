@@ -6,6 +6,7 @@ import ButtonGradient from "./assets/svg/ButtonGradient";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats/Stats";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
 
 // Dynamic imports for better code splitting
 const Benefits = dynamic(() => import("@/components/Benefits/Benefits"), {
@@ -34,8 +35,9 @@ const Home = () => {
   return (
     <>
       <Head>
-        <link rel="preload" href="https://lottie.host/19775748-e6a6-45a5-8a89-170ec98ea4fd/V6yXEhioHq.lottie" as="fetch" crossOrigin="anonymous" />
-        <link rel="preload" href="https://lottie.host/a3b896b4-430c-4755-a470-7dc5b41f98c5/vJERKBqUhf.lottie" as="fetch" crossOrigin="anonymous" />
+        <link rel="preload" href="/desktop_hero.lottie" as="fetch" />
+        <link rel="preload" href="/mobile_hero.lottie" as="fetch" />
+        <link rel="preload" href="/lottie/camera.lottie" as="fetch" />
       </Head>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
         <Header />
@@ -64,6 +66,7 @@ const Home = () => {
         </Suspense>
       </div>
 
+      <PerformanceOptimizer />
       <ButtonGradient />
     </>
   );

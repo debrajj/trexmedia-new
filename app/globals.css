@@ -17,10 +17,38 @@ body {
     justify-content: center;
 }
 
-/* Prevent layout shift */
+/* Performance optimizations */
 .lottie-container {
     contain: layout style paint;
     will-change: auto;
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for better performance */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize heavy animations */
+.animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 

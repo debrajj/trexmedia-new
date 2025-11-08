@@ -10,29 +10,63 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const legalLinks = [
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Refund Policy", href: "/refund-policy" },
+    { name: "Cookie Policy", href: "/cookie-policy" },
+  ];
+
   return (
-    <Section crosses className="!px-0 !py-10">
-      <div className="container flex sm:justify-between justify-center items-center gap-10 max-sm:flex-col">
-        <div className="flex items-center gap-5">
-          <Image src={assets.newlogo} width={110} height={28} alt="TrexMedia Logo" />
+    <Section crosses className="!px-0 !py-16">
+      <div className="container">
+        {/* Main Footer Content */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+          {/* Company Info */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center gap-3 mb-4">
+              <Image src={assets.newlogo} width={120} height={30} alt="Trexx Networks Logo" />
+            </div>
+            <p className="text-n-3 text-center md:text-left max-w-sm text-sm">
+              Next-generation internet service provider delivering lightning-fast fiber optic connectivity across India.
+            </p>
+          </div>
+
+          {/* Social Media */}
+          <div className="flex gap-4">
+            {socials.map((item) => (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 bg-n-7 border border-n-6 rounded-full transition-all hover:bg-n-6 hover:border-color-1 hover:scale-110"
+              >
+                <Image src={item.iconUrl} width={16} height={16} alt={item.title} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <p className="caption text-n-4 lg:block">
-          © {new Date().getFullYear()}. All rights reserved.
-        </p>
-
-        <ul className="flex gap-5 flex-wrap">
-          {socials.map((item) => (
-            <a
-              key={item.id}
-              href={item.url}
-              target="_blank"
-              className="flex items-center justify-center w-10 h-10 bg-n-7 rounded-full transition-colors hover:bg-n-6"
-            >
-              <Image src={item.iconUrl} width={16} height={16} alt={item.title} />
-            </a>
-          ))}
-        </ul>
+        {/* Bottom Section */}
+        <div className="border-t border-n-6 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
+              {legalLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className="text-n-4 hover:text-color-1 transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            <p className="text-n-4 text-sm text-center md:text-right" suppressHydrationWarning>
+              © {new Date().getFullYear()} Trexx Networks. All rights reserved.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Back to Top Button */}
