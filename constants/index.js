@@ -89,7 +89,7 @@ export const ispServices = [
     title: "Wi-Fi Internet Solutions",
     description: "Ultra-fast fiber optic internet with speeds up to 1Gbps. Perfect for homes and businesses.",
     icon: "wifi",
-    buttonText: "Show Data Plans",
+    buttonText: "Show Plans",
     buttonLink: "/pricing",
   },
   {

@@ -64,7 +64,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <TechLogos className="relative z-10 pt-0 pb-20" />
+      <TechLogos className="relative z-10 pt-0" />
     </div>
   );
 };

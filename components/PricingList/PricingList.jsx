@@ -251,15 +251,19 @@ const PricingList = () => {
 
                   {/* Action */}
                   <td className="py-6 px-6">
-                    <Link href="/contact">
+                    <a 
+                      href={`https://wa.me/919707237225?text=Hi,%20I'm%20interested%20in%20Plan%20ID%20${plan.planId}%20-%20${plan.speed}Mbps%20${plan.data}%20plan`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <button className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
                         plan.popular
                           ? 'bg-gradient-to-r from-color-1 to-purple-500 text-white hover:shadow-lg hover:shadow-color-1/25 hover:scale-105'
                           : 'bg-n-7 text-n-1 border-2 border-color-1/20 hover:bg-gradient-to-r hover:from-color-1 hover:to-purple-500 hover:text-white hover:scale-105'
                       }`}>
-                        Get Started
+                        Choose Plan
                       </button>
-                    </Link>
+                    </a>
                   </td>
                 </tr>
               ))}
@@ -358,21 +362,25 @@ const PricingList = () => {
                         <span className="text-xs font-semibold text-n-3">₹</span>
                         <span className="text-lg font-black text-n-1">{plan.price}</span>
                       </div>
-                      <span className="text-[10px] text-n-4">+18% GST</span>
+                      <span className="text-[10px] text-n-4">Inc +18%</span>
                     </div>
                   </td>
 
                   {/* Action */}
                   <td className="py-4 px-4">
-                    <Link href="/contact">
+                    <a 
+                      href={`https://wa.me/919707237225?text=Hi,%20I'm%20interested%20in%20Plan%20ID%20${plan.planId}%20-%20${plan.speed}Mbps%20${plan.data}%20plan`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <button className={`px-4 py-2 rounded-lg font-semibold text-xs transition-all duration-300 whitespace-nowrap ${
                         plan.popular
                           ? 'bg-gradient-to-r from-color-1 to-purple-500 text-white'
                           : 'bg-n-7 text-n-1 border border-color-1/20'
                       }`}>
-                        Get Started
+                        Choose Plan
                       </button>
-                    </Link>
+                    </a>
                   </td>
                 </tr>
               ))}

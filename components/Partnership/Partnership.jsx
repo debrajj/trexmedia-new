@@ -38,7 +38,7 @@ const Partnership = () => {
           </div>
 
           {/* Railway Station Style Layout */}
-          <div className="relative bg-gradient-to-br from-n-8/80 to-n-7/60 backdrop-blur-sm rounded-3xl border border-n-6/40 p-8 lg:p-12">
+          <div className="relative bg-gradient-to-br from-n-8/80 to-n-7/60 backdrop-blur-sm rounded-3xl border border-n-6/40 p-2 md:p-8 lg:p-12">
             
             {/* Station Platform Effect */}
             <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-n-6/50 via-n-5/50 to-n-6/50 rounded-b-3xl"></div>
@@ -48,7 +48,7 @@ const Partnership = () => {
               {/* Left: RailWire Logo */}
               <div className="relative">
                 <div className="relative flex justify-center">
-                  <div className="relative rounded-2xl p-8">
+                  <div className="relative rounded-2xl p-2 md:p-8">
                     <Image 
                       src={assets.railwireNew} 
                       alt="RailWire" 

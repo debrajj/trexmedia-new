@@ -139,7 +139,7 @@ const ServicesPage = () => {
                 <PixelCard
                   key={service.id}
                   variant={variants[index]}
-                  className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group relative"
+                  className="bg-n-8 border border-n-5/30 hover:border-n-5 transition-colors group relative"
                 >
                   {/* Launching Soon Badge */}
                   {service.comingSoon && (

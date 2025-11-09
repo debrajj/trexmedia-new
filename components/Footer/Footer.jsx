@@ -25,7 +25,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="flex flex-col">
             <div className="mb-4">
-              <Image src={assets.r1} width={220} height={55} alt="Trexx Networks Logo" />
+              <Image src={assets.r1} width={50} height={13} alt="Trexx Networks Logo" />
             </div>
             <p className="text-n-3 text-left max-w-sm text-sm">
               Next-generation internet service provider delivering lightning-fast fiber optic connectivity across India.

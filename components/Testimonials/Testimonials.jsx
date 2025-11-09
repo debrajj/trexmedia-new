@@ -39,7 +39,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <Section className="py-20">
+    <Section className="pt-8 pb-0 md:py-20">
       <div className="container">
         <Heading
           tag="Testimonials"

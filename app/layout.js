@@ -1,7 +1,9 @@
+"use client";
 import { Rajdhani, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import ColorBends from "@/components/ColorBends";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import { useState, useEffect } from "react";
 
 const rajdhani = Rajdhani({ 
   subsets: ["latin"],
@@ -17,12 +19,17 @@ const nunitoSans = Nunito_Sans({
   variable: '--font-nunito'
 });
 
-export const metadata = {
-  title: "Trexx IT Pro - Future of Connectivity",
-  description: "Experience lightning-fast fiber optic internet, enterprise-grade security, and 24/7 support with next-generation network solutions.",
-};
-
 export default function RootLayout({ children }) {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent));
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   return (
     <html lang="en" className={`${rajdhani.variable} ${nunitoSans.variable}`}>
       <head>
@@ -46,18 +53,20 @@ export default function RootLayout({ children }) {
       </head>
       <body className={nunitoSans.className}>
         {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
-        <ColorBends
-          colors={["#ff0066", "#8800ff", "#00ccff"]}
-          rotation={30}
-          speed={0.3}
-          scale={1.0}
-          frequency={1.5}
-          warpStrength={1.2}
-          mouseInfluence={0.5}
-          parallax={0.5}
-          noise={0.08}
-          transparent
-        />
+        {!isMobile && (
+          <ColorBends
+            colors={["#ff0066", "#8800ff", "#00ccff"]}
+            rotation={30}
+            speed={0.15}
+            scale={1.0}
+            frequency={1.2}
+            warpStrength={0.8}
+            mouseInfluence={0.3}
+            parallax={0.3}
+            noise={0.05}
+            transparent
+          />
+        )}
         <div style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </div>

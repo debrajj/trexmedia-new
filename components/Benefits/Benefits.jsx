@@ -137,7 +137,7 @@ const Benefits = () => {
               <PixelCard
                 key={item.id}
                 variant={variants[index]}
-                className="bg-n-8 border border-n-6 hover:border-n-5 transition-colors group"
+                className="bg-n-8 border border-n-5/50 hover:border-n-5 transition-colors group"
               >
                 <div className="flex flex-col p-4 md:p-[2.4rem] h-full">
                   <div className="w-8 h-8 md:w-16 md:h-16 mb-3 md:mb-5 group-hover:scale-110 transition-transform duration-300">

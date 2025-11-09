@@ -199,9 +199,9 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    // Throttle to 15fps for better performance
+    // Throttle to 10fps for better performance
     let lastTime = 0;
-    const targetFPS = 15;
+    const targetFPS = 10;
     const frameInterval = 1000 / targetFPS;
     let isVisible = true;
     

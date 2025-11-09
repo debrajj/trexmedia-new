@@ -48,7 +48,7 @@ const CTA = () => {
             <PixelCard
               key={pkg.id}
               variant={index === 0 ? 'blue' : index === 1 ? 'yellow' : 'pink'}
-              className="bg-n-8 border border-n-6 hover:border-color-1/50 transition-colors"
+              className="bg-n-8 border-2 border-n-5/50 hover:border-color-1/50 transition-colors"
             >
               <div className="p-6 md:p-8 text-center">
                 <h4 className="h5 mb-4 text-color-1">{pkg.name}</h4>
@@ -75,7 +75,10 @@ const CTA = () => {
                   )}
                 </div>
 
-                <Button href="/pricing" className="w-full">
+                <Button 
+                  href={`https://wa.me/919707237225?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(pkg.name)}%20-%20${pkg.speed}%20for%20${pkg.duration}%20at%20₹${pkg.price}`}
+                  className="w-full"
+                >
                   Choose Plan
                 </Button>
               </div>
