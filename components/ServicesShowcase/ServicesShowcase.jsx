@@ -123,7 +123,6 @@ const ServicesShowcase = () => {
       <div className="container">
         <Heading
           tag="Our Services"
-          title="Complete Network Solutions"
           text="Professional services designed to keep you connected and secure"
           className="[&_h2]:leading-tight [&_p]:leading-snug"
         />
@@ -144,12 +143,25 @@ const ServicesShowcase = () => {
                 </div>
               )}
               
-              <div className="relative p-4 md:p-8 h-full">
+              <div className="relative p-4 md:p-8 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-20 md:h-20 mb-2 md:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                   <ServiceIcon type={service.icon} id={service.id} />
                 </div>
                 <h3 className="text-sm md:h5 mb-2 md:mb-3 text-center">{service.title}</h3>
-                <p className="text-xs md:body-2 text-n-3 text-center">{service.description}</p>
+                <p className="text-xs md:body-2 text-n-3 text-center mb-4 flex-grow">{service.description}</p>
+                
+                {/* Action Button */}
+                {service.buttonText && !service.comingSoon && (
+                  <div className="flex justify-center mt-auto">
+                    <Button 
+                      href={service.buttonLink}
+                      className="text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2"
+                      white={service.isExternal}
+                    >
+                      {service.buttonText}
+                    </Button>
+                  </div>
+                )}
               </div>
             </PixelCard>
           ))}

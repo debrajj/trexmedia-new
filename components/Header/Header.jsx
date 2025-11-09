@@ -11,8 +11,8 @@ const Header = () => {
     <>
       <div className="bg-n-8/70 backdrop-blur-xl w-full left-0 fixed top-0 z-50 border-n-6/50 border-b lg:bg-n-8/70 lg:backdrop-blur-xl shadow-lg shadow-n-8/50">
         <div className="flex items-center px-8 lg:px-12 xl:px-20 py-1 lg:py-0">
-          <Link href="/" className="w-[8rem] block xl:mr-8">
-            <Image src={assets.newlogo} alt="Trexx Media" width={90} height={22} className="object-contain" />
+          <Link href="/" className="w-[12rem] block xl:mr-8">
+            <Image src={assets.r1} alt="Trexx Media" width={150} height={38} className="object-contain" />
           </Link>
           <nav className="hidden lg:flex lg:static lg:mx-auto lg:bg-transparent">
             <div className="flex flex-col lg:flex-row m-auto z-2 relative">

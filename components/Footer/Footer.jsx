@@ -21,13 +21,13 @@ const Footer = () => {
     <Section crosses className="!px-0 !py-16">
       <div className="container">
         {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           {/* Company Info */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-3 mb-4">
-              <Image src={assets.newlogo} width={120} height={30} alt="Trexx Networks Logo" />
+          <div className="flex flex-col">
+            <div className="mb-4">
+              <Image src={assets.r1} width={220} height={55} alt="Trexx Networks Logo" />
             </div>
-            <p className="text-n-3 text-center md:text-left max-w-sm text-sm">
+            <p className="text-n-3 text-left max-w-sm text-sm">
               Next-generation internet service provider delivering lightning-fast fiber optic connectivity across India.
             </p>
           </div>
@@ -50,8 +50,8 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-n-6 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+            <div className="flex flex-wrap justify-start gap-4 text-sm">
               {legalLinks.map((link, index) => (
                 <a
                   key={index}
@@ -62,7 +62,7 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <p className="text-n-4 text-sm text-center md:text-right" suppressHydrationWarning>
+            <p className="text-n-4 text-sm text-left md:text-right" suppressHydrationWarning>
               © {new Date().getFullYear()} Trexx Networks. All rights reserved.
             </p>
           </div>

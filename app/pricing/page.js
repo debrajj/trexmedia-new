@@ -15,18 +15,6 @@ const PricingPage = () => {
         
         <Section className="pt-0" crosses>
           <div className="container">
-            {/* Professional Header */}
-            <div className="text-center mb-12 md:mb-20 px-4">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-n-1 mb-6">
-                Choose Your
-                <span className="block bg-gradient-to-r from-color-1 to-purple-500 bg-clip-text text-transparent">
-                  Perfect Plan
-                </span>
-              </h1>
-            </div>
-
-
-
             <Pricing />
 
             {/* Direct Call CTA */}

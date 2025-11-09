@@ -5,6 +5,7 @@ import play from "./play.svg";
 import gradient from "./gradient.png";
 import grid from "./grid.png";
 import newlogo from "./newlogo.png";
+import r1 from "./r1.png";
 import homeSmile from "./home-smile.svg";
 import file02 from "./file-02.svg";
 import searchMd from "./search-md.svg";
@@ -70,6 +71,7 @@ export const assets = {
   gradient,
   grid,
   newlogo,
+  r1,
   homeSmile,
   file02,
   searchMd,

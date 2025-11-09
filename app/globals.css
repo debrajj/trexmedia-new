@@ -35,6 +35,39 @@ body {
   }
 }
 
+/* Reduce motion class for low-end devices */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Optimize will-change usage */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Remove will-change after animation */
+.animate-fadeInUp,
+.animate-fadeIn,
+.animate-glow,
+.animate-float {
+  animation-fill-mode: forwards;
+}
+
+.animate-fadeInUp:not(:hover),
+.animate-fadeIn:not(:hover),
+.animate-glow:not(:hover),
+.animate-float:not(:hover) {
+  will-change: auto;
+}
+
 /* GPU acceleration for better performance */
 .gpu-accelerated {
     transform: translateZ(0);
@@ -299,15 +332,22 @@ html {
 
 /* Optimized Transitions - Only for interactive elements */
 a, button, [role="button"], input, select, textarea {
-    transition-property: background-color, border-color, color, opacity, transform;
+    transition-property: background-color, border-color, color, opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
 
 .hover-transition {
-    transition-property: background-color, border-color, color, opacity, transform;
+    transition-property: background-color, border-color, color, opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
+}
+
+/* Only add transform transition when needed */
+.hover-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
 }
 
 /* Infinite Moving Cards Animation */

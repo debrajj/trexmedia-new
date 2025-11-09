@@ -33,7 +33,7 @@ const TechLogos = ({ className }) => {
   return (
     <div className={className}>
       <h5 className="tagline mb-6 text-center text-n-1/50">
-        Powered by industry-leading technology partners
+        Trusted by Top Tech Innovators and Industry Leaders
       </h5>
       <div className="py-8">
         <LogoLoop

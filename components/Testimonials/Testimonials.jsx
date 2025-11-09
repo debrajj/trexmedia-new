@@ -7,34 +7,34 @@ import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Switched to this ISP 6 months ago and haven't looked back. The fiber optic speed is incredible - downloads that used to take hours now finish in minutes. Their support team is always there when needed, even during festival seasons!",
-      name: "Priya Sharma",
-      title: "Small Business Owner, Mumbai",
+      quote: "A very good person with tremendous knowledge of computer engineering. He can fix all pc related issues be it software or hardware... I bet you will never get disappointed by his service. Must visit.",
+      name: "Abhijit Nath",
+      title: "Local Guide",
+      rating: 5,
     },
     {
-      quote: "Their enterprise solution scaled perfectly with our startup's rapid growth. From 10 employees to 100, the network never skipped a beat. The dedicated account manager makes everything seamless and stress-free for our Bangalore operations.",
-      name: "Rajesh Kumar",
-      title: "Tech Startup CEO, Bangalore",
+      quote: "I've been impressed with Trexx network's affordable internet service. They not only offer budget-friendly plans but also deliver reliable and commendable service. It's a great balance of affordability and quality that keeps me satisfied as a customer.",
+      name: "Jahid Laskar",
+      title: "Google Review",
+      rating: 5,
     },
     {
-      quote: "Finally, an ISP that delivers on its promises. 99.9% uptime isn't just marketing - it's reality. As a remote worker from Pune, reliable internet is everything. This has been a complete game changer for my productivity.",
-      name: "Ananya Patel",
-      title: "Remote Software Developer, Pune",
+      quote: "Just installed Railwire service! For me ping is necessary and railwire gives constant ping. And the promised speed is there always. No lag nothing. Plus the provider is friendly and very good in nature so easy to connect with him.",
+      name: "Chemin Strix",
+      title: "Local Guide",
+      rating: 5,
     },
     {
-      quote: "The IP camera installation service was professional and thorough. They set up our entire security system with cloud integration. Now I can monitor my restaurant chain across Delhi NCR from anywhere. Absolutely worth every rupee.",
-      name: "Vikram Singh",
-      title: "Restaurant Owner, Delhi",
+      quote: "Nice to know that internet service provider is now available in our small town umednagar lala area. 2 years back I was struggling with BSNL lala as I was doing work from home and lots of problem was there in the line connection. Now if I come home I will surely use this service provider 👍👍👍",
+      name: "Jmz crez",
+      title: "Google Review",
+      rating: 5,
     },
     {
-      quote: "Their co-location hosting saved our company lakhs. The data center is state-of-the-art with redundant power and cooling. Our servers have never been more secure or reliable. Highly recommend for any serious business in India.",
-      name: "Deepika Menon",
-      title: "IT Director, Chennai",
-    },
-    {
-      quote: "Best customer service I've ever experienced from an ISP in India. When we had an issue during monsoon, they had a technician at our Hyderabad office within 2 hours. The problem was fixed in 30 minutes. That's the kind of service that keeps customers for life.",
-      name: "Arjun Reddy",
-      title: "Marketing Agency Owner, Hyderabad",
+      quote: "Both are shayari, everything is ready to help... They fixed my PC easily... I don't know about the rest, thank God I got shayari...",
+      name: "Queen Nath",
+      title: "Google Review",
+      rating: 5,
     },
   ];
 

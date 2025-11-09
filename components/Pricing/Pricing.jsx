@@ -11,17 +11,11 @@ const Pricing = () => {
     <>
       <Section className="overflow-hidden" id="pricing">
         <div className="container relative z-2">
-
-          <Heading
-            title="Flexible Plans for Every Need"
-            tag="CHOOSE YOUR PLAN"
-          />
           <div className="relative">
             <PricingList />
             <LeftLine />
             <RightLine />
           </div>
-
         </div>
       </Section>
     </>

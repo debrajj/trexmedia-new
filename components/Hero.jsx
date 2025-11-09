@@ -27,7 +27,11 @@ const Hero = () => {
             loop={false}
             autoplay={true}
             className="w-full h-full"
-            speed={0.5}
+            speed={0.8}
+            useFrameInterpolation={false}
+            renderConfig={{
+              devicePixelRatio: 1
+            }}
           />
         </div>
       </div>
@@ -40,7 +44,11 @@ const Hero = () => {
             loop={false}
             autoplay={true}
             className="w-full h-full"
-            speed={0.5}
+            speed={0.8}
+            useFrameInterpolation={false}
+            renderConfig={{
+              devicePixelRatio: 1
+            }}
           />
         </div>
       </div>

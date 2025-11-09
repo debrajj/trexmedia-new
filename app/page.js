@@ -15,9 +15,6 @@ const Benefits = dynamic(() => import("@/components/Benefits/Benefits"), {
 const ServicesShowcase = dynamic(() => import("@/components/ServicesShowcase/ServicesShowcase"), {
   loading: () => <div className="h-32 animate-pulse bg-n-8 rounded-lg" />
 });
-const Roadmap = dynamic(() => import("@/components/Roadmap/Roadmap"), {
-  loading: () => <div className="h-32 animate-pulse bg-n-8 rounded-lg" />
-});
 const Testimonials = dynamic(() => import("@/components/Testimonials/Testimonials"), {
   loading: () => <div className="h-32 animate-pulse bg-n-8 rounded-lg" />
 });
@@ -44,13 +41,10 @@ const Home = () => {
         <Hero />
         <Stats />
         <Suspense fallback={<div className="h-32 animate-pulse bg-n-8 rounded-lg" />}>
-          <Benefits />
-        </Suspense>
-        <Suspense fallback={<div className="h-32 animate-pulse bg-n-8 rounded-lg" />}>
           <ServicesShowcase />
         </Suspense>
         <Suspense fallback={<div className="h-32 animate-pulse bg-n-8 rounded-lg" />}>
-          <Roadmap />
+          <Benefits />
         </Suspense>
         <Suspense fallback={<div className="h-32 animate-pulse bg-n-8 rounded-lg" />}>
           <Testimonials />

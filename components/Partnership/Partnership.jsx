@@ -3,6 +3,7 @@ import React from "react";
 import Section from "../Section";
 import { assets } from "@/app/assets";
 import Image from "next/image";
+import AnimatedCounter from "../AnimatedCounter";
 
 const Partnership = () => {
   return (
@@ -47,13 +48,15 @@ const Partnership = () => {
               {/* Left: RailWire Logo */}
               <div className="relative">
                 <div className="relative flex justify-center">
-                  <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
+                  <div className="relative rounded-2xl p-8">
                     <Image 
                       src={assets.railwireNew} 
                       alt="RailWire" 
-                      width={220} 
-                      height={140}
+                      width={280} 
+                      height={180}
                       className="object-contain"
+                      priority
+                      quality={100}
                     />
                   </div>
                 </div>
@@ -70,17 +73,12 @@ const Partnership = () => {
                     </div>
                     <div className="absolute left-2 top-6 w-0.5 h-8 bg-gradient-to-b from-color-1/50 to-transparent"></div>
                     <h4 className="h5 text-n-1 mb-2">🚄 Nationwide Network</h4>
-                    <p className="body-2 text-n-4">67,000+ km railway infrastructure coverage across India</p>
-                  </div>
-                  
-                  {/* Security - Signal Style */}
-                  <div className="relative pl-8">
-                    <div className="absolute left-0 top-2 w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    <div className="absolute left-2 top-6 w-0.5 h-8 bg-gradient-to-b from-green-500/50 to-transparent"></div>
-                    <h4 className="h5 text-n-1 mb-2">🔒 Enterprise Security</h4>
-                    <p className="body-2 text-n-4">Military-grade encryption & railway-standard protocols</p>
+                    <p className="body-2 text-n-4">
+                      <span className="text-color-1 font-semibold text-xl">
+                        <AnimatedCounter end={63000} duration={2500} suffix="+" />
+                      </span>
+                      <span className="text-n-1"> KM</span> Route Km OFC, UNDER TRACK
+                    </p>
                   </div>
                   
                   {/* Reliability - Station Clock Style */}
@@ -89,7 +87,13 @@ const Partnership = () => {
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
                     <h4 className="h5 text-n-1 mb-2">⏰ 99.9% Uptime</h4>
-                    <p className="body-2 text-n-4">Railway-grade reliability & guaranteed service</p>
+                    <p className="body-2 text-n-4">
+                      Railway-grade reliability with OFC ring topology (
+                      <span className="text-color-1 font-semibold text-xl">
+                        <AnimatedCounter end={11000} duration={2500} suffix="+" />
+                      </span>
+                      <span className="text-n-1"> POPs</span>)
+                    </p>
                   </div>
                 </div>
               </div>

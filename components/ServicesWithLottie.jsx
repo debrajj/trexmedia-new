@@ -1,9 +1,12 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { ispServices } from "@/constants";
 
 const ServiceCard = ({ service, index }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  
   // Local Lottie files
   const lottieUrls = {
     "0": "/lottie/wifi.json", // WiFi
@@ -13,6 +16,10 @@ const ServiceCard = ({ service, index }) => {
     "4": "/lottie/code.json", // Code
     "5": "/lottie/desktop.json", // Desktop
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <motion.div
@@ -39,14 +46,18 @@ const ServiceCard = ({ service, index }) => {
 
         {/* Lottie Animation */}
         <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-          <DotLottieReact
-            src={lottieUrls[service.id]}
-            loop={false}
-            autoplay={false}
-            className="w-full h-full"
-            onMouseEnter={(e) => e.target?.play?.()}
-            onMouseLeave={(e) => e.target?.pause?.()}
-          />
+          {isMounted && (
+            <DotLottieReact
+              src={lottieUrls[service.id]}
+              loop={false}
+              autoplay={false}
+              className="w-full h-full"
+              useFrameInterpolation={false}
+              renderConfig={{
+                devicePixelRatio: 1
+              }}
+            />
+          )}
         </div>
         
         {/* Title */}

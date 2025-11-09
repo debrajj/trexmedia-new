@@ -130,7 +130,7 @@ const Benefits = () => {
         <div className="container relative z-2">
           <Heading
             className="md:text-center md:max-w-md lg:max-w-2xl"
-            title="Chat Smarter, Not Harder with Trexx IT Pro"
+            title="Why TREXX IT PRO?"
           />
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10">
             {benefits.map((item, index) => (

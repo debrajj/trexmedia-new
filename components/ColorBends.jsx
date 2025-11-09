@@ -157,12 +157,15 @@ export default function ColorBends({
 
     const renderer = new THREE.WebGLRenderer({
       antialias: false,
-      powerPreference: 'high-performance',
-      alpha: true
+      powerPreference: 'low-power',
+      alpha: true,
+      stencil: false,
+      depth: false
     });
     rendererRef.current = renderer;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    // Reduce pixel ratio for better performance
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
@@ -187,7 +190,19 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    const loop = () => {
+    // Throttle to 30fps for better performance
+    let lastTime = 0;
+    const targetFPS = 30;
+    const frameInterval = 1000 / targetFPS;
+    
+    const loop = (currentTime) => {
+      rafRef.current = requestAnimationFrame(loop);
+      
+      const deltaTime = currentTime - lastTime;
+      if (deltaTime < frameInterval) return;
+      
+      lastTime = currentTime - (deltaTime % frameInterval);
+      
       const dt = clock.getDelta();
       const elapsed = clock.elapsedTime;
       material.uniforms.uTime.value = elapsed;
@@ -205,7 +220,6 @@ export default function ColorBends({
       material.uniforms.uPointer.value.copy(cur);
 
       renderer.render(scene, camera);
-      rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
 
@@ -262,14 +276,22 @@ export default function ColorBends({
     const container = containerRef.current;
     if (!material || !container) return;
 
+    // Throttle pointer movement for better performance
+    let ticking = false;
     const handlePointerMove = e => {
-      const rect = container.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / (rect.width || 1)) * 2 - 1;
-      const y = -(((e.clientY - rect.top) / (rect.height || 1)) * 2 - 1);
-      pointerTargetRef.current.set(x, y);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = container.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / (rect.width || 1)) * 2 - 1;
+          const y = -(((e.clientY - rect.top) / (rect.height || 1)) * 2 - 1);
+          pointerTargetRef.current.set(x, y);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    container.addEventListener('pointermove', handlePointerMove);
+    container.addEventListener('pointermove', handlePointerMove, { passive: true });
     return () => {
       container.removeEventListener('pointermove', handlePointerMove);
     };

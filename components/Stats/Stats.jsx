@@ -57,9 +57,9 @@ const CountUp = ({ end, duration = 2000, suffix = "" }) => {
 const Stats = () => {
   const stats = [
     { 
-      value: "50", 
-      suffix: "K+", 
-      label: "Active Users", 
+      value: "180", 
+      suffix: "+", 
+      label: "Active FTTH Users", 
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -68,7 +68,7 @@ const Stats = () => {
       gradient: "from-blue-500 to-cyan-500"
     },
     { 
-      value: "99.9", 
+      value: "98.33", 
       suffix: "%", 
       label: "Uptime", 
       icon: (
@@ -84,7 +84,10 @@ const Stats = () => {
       label: "Max Speed", 
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12a9 9 0 0118 0" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 15a6 6 0 0112 0" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12l3.5 3.5" />
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
         </svg>
       ),
       gradient: "from-purple-500 to-pink-500"
