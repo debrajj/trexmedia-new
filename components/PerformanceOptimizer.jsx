@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const PerformanceOptimizer = () => {
   useEffect(() => {
-    // Detect low-end devices and reduce animations
+    // Smart low-end device detection
     const isLowEndDevice = () => {
       const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
       const slowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.effectiveType === '3g');
@@ -11,53 +11,84 @@ const PerformanceOptimizer = () => {
       const lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
       
-      return slowConnection || lowMemory || lowCores || isMobile;
+      // Only treat as low-end if multiple conditions are met
+      return slowConnection || (lowMemory && lowCores) || isMobile;
     };
 
     const isLowEnd = isLowEndDevice();
 
-    // Reduce animations for low-end devices
+    // Aggressive performance optimizations for low-end devices
     if (isLowEnd) {
-      document.documentElement.style.setProperty('--animation-duration', '0.1s');
-      document.documentElement.style.setProperty('--transition-duration', '0.1s');
+      document.documentElement.style.setProperty('--animation-duration', '0.15s');
+      document.documentElement.style.setProperty('--transition-duration', '0.15s');
       
       // Add reduced motion class
       document.documentElement.classList.add('reduce-motion');
       
-      // Disable Lottie autoplay
-      const lottieElements = document.querySelectorAll('[data-testid="lottie"]');
-      lottieElements.forEach(el => {
-        if (el.pause) el.pause();
-      });
+      // Disable all Lottie animations
+      const disableLottie = () => {
+        const lottieElements = document.querySelectorAll('[data-testid="lottie"]');
+        lottieElements.forEach(el => {
+          if (el.pause) el.pause();
+          if (el.stop) el.stop();
+        });
+      };
+      
+      disableLottie();
+      
+      // Recheck after DOM updates
+      setTimeout(disableLottie, 1000);
+      setTimeout(disableLottie, 3000);
     }
 
-    // Pause animations when tab is not visible
+    // Pause ALL animations when tab is not visible
     const handleVisibilityChange = () => {
       const lottieElements = document.querySelectorAll('[data-testid="lottie"]');
       
       if (document.hidden) {
+        // Pause everything
         lottieElements.forEach(el => {
           if (el.pause) el.pause();
+          if (el.stop) el.stop();
         });
-      } else if (!isLowEnd) {
-        lottieElements.forEach(el => {
-          if (el.play) el.play();
+        
+        // Stop WebGL rendering
+        const canvases = document.querySelectorAll('canvas');
+        canvases.forEach(canvas => {
+          canvas.style.display = 'none';
+        });
+      } else {
+        // Resume only if not low-end
+        if (!isLowEnd) {
+          lottieElements.forEach(el => {
+            if (el.play) el.play();
+          });
+        }
+        
+        const canvases = document.querySelectorAll('canvas');
+        canvases.forEach(canvas => {
+          canvas.style.display = '';
         });
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Throttle scroll events
+    // Aggressive scroll throttling
     let scrollTimeout;
     const handleScroll = () => {
       if (scrollTimeout) return;
       scrollTimeout = setTimeout(() => {
         scrollTimeout = null;
-      }, 100);
+      }, 150);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Disable smooth scrolling on low-end devices
+    if (isLowEnd) {
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
 
     // Cleanup
     return () => {

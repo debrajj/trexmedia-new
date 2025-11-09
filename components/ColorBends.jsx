@@ -121,7 +121,15 @@ export default function ColorBends({
   const pointerSmoothRef = useRef(8);
 
   useEffect(() => {
+    console.log('ColorBends: Initializing with colors:', colors);
     const container = containerRef.current;
+    
+    if (!container) {
+      console.error('ColorBends: Container ref is null!');
+      return;
+    }
+    
+    console.log('ColorBends: Container found, creating scene...');
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const geometry = new THREE.PlaneGeometry(2, 2);
@@ -160,12 +168,13 @@ export default function ColorBends({
       powerPreference: 'low-power',
       alpha: true,
       stencil: false,
-      depth: false
+      depth: false,
+      failIfMajorPerformanceCaveat: false
     });
     rendererRef.current = renderer;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    // Reduce pixel ratio for better performance
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    // Ultra-low pixel ratio for maximum performance
+    renderer.setPixelRatio(0.75);
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
@@ -190,13 +199,17 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    // Throttle to 30fps for better performance
+    // Throttle to 15fps for better performance
     let lastTime = 0;
-    const targetFPS = 30;
+    const targetFPS = 15;
     const frameInterval = 1000 / targetFPS;
+    let isVisible = true;
     
     const loop = (currentTime) => {
       rafRef.current = requestAnimationFrame(loop);
+      
+      // Skip rendering if tab is hidden
+      if (!isVisible) return;
       
       const deltaTime = currentTime - lastTime;
       if (deltaTime < frameInterval) return;
@@ -221,12 +234,20 @@ export default function ColorBends({
 
       renderer.render(scene, camera);
     };
+    
+    // Pause rendering when tab is hidden
+    const handleVisibilityChange = () => {
+      isVisible = !document.hidden;
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
     rafRef.current = requestAnimationFrame(loop);
 
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       if (resizeObserverRef.current) resizeObserverRef.current.disconnect();
       else window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       geometry.dispose();
       material.dispose();
       renderer.dispose();
@@ -301,7 +322,16 @@ export default function ColorBends({
     <div 
       ref={containerRef} 
       className={`color-bends-container ${className}`}
-      style={style}
+      style={{
+        ...style,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 0,
+        pointerEvents: 'none'
+      }}
     />
   );
 }

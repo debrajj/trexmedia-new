@@ -42,6 +42,25 @@ body {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Disable backdrop blur on low-end devices */
+.reduce-motion .glass,
+.reduce-motion .glass-strong {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Disable shadows on low-end devices */
+.reduce-motion * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Disable transforms on low-end devices */
+.reduce-motion .hover-glow:hover {
+  transform: none !important;
 }
 
 /* Optimize will-change usage */
@@ -102,7 +121,14 @@ body {
 }
 
 * {
+    scroll-behavior: auto;
+}
+
+/* Only enable smooth scroll on high-end devices */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  * {
     scroll-behavior: smooth;
+  }
 }
 
 html {

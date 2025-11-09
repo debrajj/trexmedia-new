@@ -61,8 +61,16 @@ const Stats = () => {
       suffix: "+", 
       label: "Active FTTH Users", 
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          {/* Fiber optic cable with users */}
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2L12 8M12 8C10.5 8 9 9 9 10.5V12M12 8C13.5 8 15 9 15 10.5V12" />
+          <circle cx="12" cy="2" r="1" fill="currentColor" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12C9 13.5 7.5 15 6 15C4.5 15 3 13.5 3 12C3 10.5 4.5 9 6 9" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12C15 13.5 16.5 15 18 15C19.5 15 21 13.5 21 12C21 10.5 19.5 9 18 9" />
+          <circle cx="6" cy="18" r="2.5" stroke="currentColor" strokeWidth={1.5} fill="none" />
+          <circle cx="12" cy="20" r="2.5" stroke="currentColor" strokeWidth={1.5} fill="none" />
+          <circle cx="18" cy="18" r="2.5" stroke="currentColor" strokeWidth={1.5} fill="none" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 15.5L6 15.5M12 15L12 17.5M18 15.5L18 15.5" />
         </svg>
       ),
       gradient: "from-blue-500 to-cyan-500"
@@ -72,22 +80,31 @@ const Stats = () => {
       suffix: "%", 
       label: "Uptime", 
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          {/* Server with checkmark and uptime indicator */}
+          <rect x="3" y="4" width="18" height="16" rx="2" strokeWidth={1.5} />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 9h18M3 14h18" />
+          <circle cx="6.5" cy="6.5" r="0.5" fill="currentColor" />
+          <circle cx="8.5" cy="6.5" r="0.5" fill="currentColor" />
+          <circle cx="6.5" cy="11.5" r="0.5" fill="currentColor" />
+          <circle cx="8.5" cy="11.5" r="0.5" fill="currentColor" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 17l2 2 4-4" />
         </svg>
       ),
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "from-green-500 to-emerald-500"
     },
     { 
       value: "1", 
       suffix: "Gbps", 
       label: "Max Speed", 
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12a9 9 0 0118 0" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 15a6 6 0 0112 0" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12l3.5 3.5" />
-          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          {/* Speedometer/gauge with lightning */}
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V12L16 14" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 8L17 10L19 10L17 13" fill="currentColor" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 4.5L8.5 6M16 4.5L15.5 6M4.5 8L6 8.5M4.5 16L6 15.5" />
         </svg>
       ),
       gradient: "from-purple-500 to-pink-500"
@@ -97,11 +114,16 @@ const Stats = () => {
       suffix: "/7", 
       label: "Support", 
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          {/* Headset with 24/7 clock */}
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.5 2 2 6.5 2 12V16C2 17.1 2.9 18 4 18H6C7.1 18 8 17.1 8 16V13C8 11.9 7.1 11 6 11H4C4 6.5 7.5 3 12 3C16.5 3 20 6.5 20 11H18C16.9 11 16 11.9 16 13V16C16 17.1 16.9 18 18 18H20C21.1 18 22 17.1 22 16V12C22 6.5 17.5 2 12 2Z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 22C10.9 22 10 21.1 10 20H14C14 21.1 13.1 22 12 22Z" />
+          <circle cx="12" cy="8" r="0.5" fill="currentColor" />
+          <circle cx="15" cy="9" r="0.5" fill="currentColor" />
+          <circle cx="9" cy="9" r="0.5" fill="currentColor" />
         </svg>
       ),
-      gradient: "from-green-500 to-emerald-500"
+      gradient: "from-yellow-500 to-orange-500"
     },
   ];
 

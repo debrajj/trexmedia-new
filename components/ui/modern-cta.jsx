@@ -15,12 +15,12 @@ export const ModernCTA = ({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "50px" }}
+          transition={{ duration: 0.4 }}
           className="relative"
         >
-          {/* Background glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-color-1/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl" />
+          {/* Background glow - Hidden on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-r from-color-1/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl hidden md:block" />
           
           {/* Content */}
           <div className="relative bg-n-8/90 backdrop-blur-sm border border-n-6 rounded-3xl p-12 md:p-16 text-center overflow-hidden">
@@ -34,7 +34,7 @@ export const ModernCTA = ({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
                 className="h2 text-n-1 mb-6 font-heading"
               >
                 {title}
@@ -44,7 +44,7 @@ export const ModernCTA = ({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
                 className="body-1 text-n-3 mb-10"
               >
                 {description}
@@ -55,29 +55,25 @@ export const ModernCTA = ({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 {primaryButton && (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-color-1 to-purple-500 rounded-xl text-n-1 font-semibold hover:shadow-lg hover:shadow-color-1/50 transition-all duration-300"
+                  <button
+                    className="px-8 py-4 bg-gradient-to-r from-color-1 to-purple-500 rounded-xl text-n-1 font-semibold hover:shadow-lg hover:shadow-color-1/50 transition-all duration-200"
                     onClick={primaryButton.onClick}
                   >
                     {primaryButton.text}
-                  </motion.button>
+                  </button>
                 )}
                 
                 {secondaryButton && (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-n-7 border border-n-6 rounded-xl text-n-1 font-semibold hover:bg-n-6 hover:border-color-1 transition-all duration-300"
+                  <button
+                    className="px-8 py-4 bg-n-7 border border-n-6 rounded-xl text-n-1 font-semibold hover:bg-n-6 hover:border-color-1 transition-all duration-200"
                     onClick={secondaryButton.onClick}
                   >
                     {secondaryButton.text}
-                  </motion.button>
+                  </button>
                 )}
               </motion.div>
             </div>

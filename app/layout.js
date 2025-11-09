@@ -47,15 +47,15 @@ export default function RootLayout({ children }) {
       <body className={nunitoSans.className}>
         {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
         <ColorBends
-          colors={["#ff5c7a", "#8a5cff", "#03BFFF"]}
+          colors={["#ff0066", "#8800ff", "#00ccff"]}
           rotation={30}
-          speed={0.2}
-          scale={1.2}
-          frequency={1.2}
-          warpStrength={1.0}
+          speed={0.3}
+          scale={1.0}
+          frequency={1.5}
+          warpStrength={1.2}
           mouseInfluence={0.5}
-          parallax={0.4}
-          noise={0.05}
+          parallax={0.5}
+          noise={0.08}
           transparent
         />
         <div style={{ position: 'relative', zIndex: 1 }}>
