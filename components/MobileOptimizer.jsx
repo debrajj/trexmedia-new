@@ -13,6 +13,22 @@ export default function MobileOptimizer() {
     
     console.log('Mobile Optimizer: Running on mobile device');
     
+    // FORCE FULL PAGE RELOAD ON NAVIGATION (disable Next.js client-side routing)
+    const handleClick = (e) => {
+      const target = e.target.closest('a');
+      if (target && target.href && target.href.startsWith(window.location.origin)) {
+        // Check if it's an internal link
+        const url = new URL(target.href);
+        if (url.pathname !== window.location.pathname) {
+          console.log('Forcing full page reload for:', url.pathname);
+          // Let the browser handle it naturally (full page reload)
+          // Don't prevent default - this will cause a full page reload
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleClick, true);
+    
     // Disable heavy animations on mobile
     document.documentElement.classList.add('mobile-optimized');
     
@@ -26,8 +42,8 @@ export default function MobileOptimizer() {
       
       /* Speed up all animations */
       .mobile-optimized * {
-        animation-duration: 0.1s !important;
-        transition-duration: 0.1s !important;
+        animation-duration: 0.05s !important;
+        transition-duration: 0.05s !important;
       }
       
       /* Disable specific heavy animations */
@@ -45,6 +61,8 @@ export default function MobileOptimizer() {
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
         overscroll-behavior-y: contain !important;
+        height: auto !important;
+        min-height: 100vh !important;
       }
       
       /* Prevent any element from blocking scroll */
@@ -57,21 +75,6 @@ export default function MobileOptimizer() {
         animation: none !important;
         transition: none !important;
       }
-      
-      /* Loading overlay */
-      .page-loading {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-      }
     `;
     document.head.appendChild(style);
     
@@ -80,8 +83,13 @@ export default function MobileOptimizer() {
     document.body.style.overflow = 'auto';
     document.body.style.position = 'relative';
     document.body.style.touchAction = 'pan-y';
+    document.body.style.height = 'auto';
     
-    console.log('Mobile Optimizer: Scroll enabled');
+    console.log('Mobile Optimizer: Scroll enabled, full page reload mode activated');
+    
+    return () => {
+      document.removeEventListener('click', handleClick, true);
+    };
     
   }, []);
   
@@ -89,14 +97,13 @@ export default function MobileOptimizer() {
   useEffect(() => {
     console.log('Route changed to:', pathname);
     
-    // Small delay to let the page start rendering
-    setTimeout(() => {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
-      document.body.style.touchAction = 'pan-y';
-      window.scrollTo(0, 0);
-      console.log('Scroll re-enabled after navigation');
-    }, 100);
+    // Immediately enable scroll
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
+    document.body.style.touchAction = 'pan-y';
+    document.body.style.height = 'auto';
+    window.scrollTo(0, 0);
+    console.log('Scroll re-enabled after navigation');
     
   }, [pathname]);
   
