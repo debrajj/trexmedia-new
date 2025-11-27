@@ -3,6 +3,7 @@ import { Rajdhani, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import ColorBends from "@/components/ColorBends";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import MobileOptimizer from "@/components/MobileOptimizer";
 import { useState, useEffect } from "react";
 
 const rajdhani = Rajdhani({ 
@@ -28,8 +29,15 @@ export default function RootLayout({ children }) {
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    
+    // Optimize for mobile performance
+    if (isMobile) {
+      // Reduce animation complexity on mobile
+      document.documentElement.style.setProperty('--animation-duration', '0.2s');
+    }
+    
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, [isMobile]);
   return (
     <html lang="en" className={`${rajdhani.variable} ${nunitoSans.variable}`}>
       <head>
@@ -52,6 +60,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={nunitoSans.className}>
+        <MobileOptimizer />
         {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
         {!isMobile && (
           <ColorBends

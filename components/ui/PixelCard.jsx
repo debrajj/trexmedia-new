@@ -220,20 +220,34 @@ export default function PixelCard({
     animationRef.current = requestAnimationFrame(() => doAnimate(name));
   };
 
-  const onMouseEnter = () => handleAnimation('appear');
-  const onMouseLeave = () => handleAnimation('disappear');
+  const onMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+    handleAnimation('appear');
+  };
+  
+  const onMouseLeave = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+    handleAnimation('disappear');
+  };
 
   const onFocus = e => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     if (e.currentTarget.contains(e.relatedTarget)) return;
     handleAnimation('appear');
   };
 
   const onBlur = e => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     if (e.currentTarget.contains(e.relatedTarget)) return;
     handleAnimation('disappear');
   };
 
   useEffect(() => {
+    // Skip pixel animation on mobile for better performance
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return;
+    }
+
     initPixels();
 
     const observer = new ResizeObserver(() => {
