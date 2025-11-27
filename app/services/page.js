@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Section from "@/components/Section";
@@ -7,7 +8,12 @@ import Heading from "@/components/Heading";
 import Button from "@/components/Button/Button";
 import { ispServices } from "@/constants";
 import ButtonGradient from "../assets/svg/ButtonGradient";
-import PixelCard from "@/components/ui/PixelCard";
+
+// Dynamically import PixelCard to reduce initial load
+const PixelCard = dynamic(() => import("@/components/ui/PixelCard"), {
+  ssr: false,
+  loading: () => <div className="bg-n-8 border border-n-6 rounded-2xl p-8 animate-pulse" />
+});
 
 const ServiceIcon = ({ type, id }) => {
   const gradientId = `gradient-${type}-${id}`;
@@ -119,7 +125,14 @@ const ServiceIcon = ({ type, id }) => {
 };
 
 const ServicesPage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const variants = ['blue', 'yellow', 'pink', 'default', 'blue', 'yellow'];
+  
+  useEffect(() => {
+    // Delay rendering heavy components
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -135,7 +148,13 @@ const ServicesPage = () => {
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ispServices.map((service, index) => (
+              {!isLoaded ? (
+                // Loading skeleton
+                Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="bg-n-8 border border-n-6 rounded-2xl p-8 h-64 animate-pulse" />
+                ))
+              ) : (
+                ispServices.map((service, index) => (
                 <PixelCard
                   key={service.id}
                   variant={variants[index]}
@@ -158,7 +177,8 @@ const ServicesPage = () => {
                     <p className="body-2 text-n-3 text-center">{service.description}</p>
                   </div>
                 </PixelCard>
-              ))}
+                ))
+              )}
             </div>
 
             {/* CTA Section */}

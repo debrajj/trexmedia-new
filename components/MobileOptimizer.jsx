@@ -1,7 +1,10 @@
 "use client";
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function MobileOptimizer() {
+  const pathname = usePathname();
+  
   useEffect(() => {
     // Detect mobile
     const isMobile = /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
@@ -54,6 +57,21 @@ export default function MobileOptimizer() {
         animation: none !important;
         transition: none !important;
       }
+      
+      /* Loading overlay */
+      .page-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
     `;
     document.head.appendChild(style);
     
@@ -66,6 +84,21 @@ export default function MobileOptimizer() {
     console.log('Mobile Optimizer: Scroll enabled');
     
   }, []);
+  
+  // Re-enable scroll on every route change
+  useEffect(() => {
+    console.log('Route changed to:', pathname);
+    
+    // Small delay to let the page start rendering
+    setTimeout(() => {
+      document.documentElement.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
+      document.body.style.touchAction = 'pan-y';
+      window.scrollTo(0, 0);
+      console.log('Scroll re-enabled after navigation');
+    }, 100);
+    
+  }, [pathname]);
   
   return null;
 }
