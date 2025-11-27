@@ -35,24 +35,30 @@ export default function MobileOptimizer() {
     // Reduce animation complexity
     const style = document.createElement('style');
     style.innerHTML = `
-      /* Disable pixel card animations */
+      /* Disable only pixel card animations (heavy) */
       .mobile-optimized .pixel-canvas {
         display: none !important;
       }
       
-      /* Speed up all animations */
+      /* Keep animations but make them faster */
       .mobile-optimized * {
-        animation-duration: 0.05s !important;
-        transition-duration: 0.05s !important;
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
       }
       
-      /* Disable specific heavy animations */
-      .mobile-optimized [class*="animate-pulse"],
+      /* Disable only the heaviest animations */
       .mobile-optimized [class*="animate-spin"],
-      .mobile-optimized [class*="animate-bounce"],
-      .mobile-optimized [class*="animate-ping"],
-      .mobile-optimized [class*="animate-"] {
+      .mobile-optimized [class*="animate-ping"] {
         animation: none !important;
+      }
+      
+      /* Keep pulse and bounce but speed them up */
+      .mobile-optimized [class*="animate-pulse"] {
+        animation-duration: 1s !important;
+      }
+      
+      .mobile-optimized [class*="animate-bounce"] {
+        animation-duration: 0.5s !important;
       }
       
       /* Ensure scrolling always works */
@@ -70,10 +76,9 @@ export default function MobileOptimizer() {
         touch-action: pan-y !important;
       }
       
-      /* Disable framer-motion animations */
+      /* Speed up framer-motion animations instead of disabling */
       [data-framer-component-type] {
-        animation: none !important;
-        transition: none !important;
+        transition-duration: 0.3s !important;
       }
     `;
     document.head.appendChild(style);
