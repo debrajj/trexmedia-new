@@ -1,5 +1,5 @@
-import { assets } from "@/app/assets";
-import { notificationImages } from "@/constants";
+import { assets } from "../app/assets";
+import { notificationImages } from "../constants";
 import Image from "next/image";
 import React from "react";
 

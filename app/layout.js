@@ -1,9 +1,9 @@
 "use client";
 import { Rajdhani, Nunito_Sans } from "next/font/google";
 import "./globals.css";
-import ColorBends from "@/components/ColorBends";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
-import MobileOptimizer from "@/components/MobileOptimizer";
+import ColorBends from "../components/ColorBends";
+import PerformanceMonitor from "../components/PerformanceMonitor";
+import MobileOptimizer from "../components/MobileOptimizer";
 import { useState, useEffect } from "react";
 
 const rajdhani = Rajdhani({ 
@@ -32,8 +32,8 @@ export default function RootLayout({ children }) {
     
     // Optimize for mobile performance
     if (isMobile) {
-      // Reduce animation complexity on mobile
-      document.documentElement.style.setProperty('--animation-duration', '0.2s');
+      // Reduce animation complexity on mobile - but don't affect scroll animations
+      document.documentElement.style.setProperty('--transition-duration', '0.2s');
     }
     
     return () => window.removeEventListener('resize', checkMobile);
@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${rajdhani.variable} ${nunitoSans.variable}`}>
       <head>
+        <meta name="google-site-verification" content="ks0fEJlmYyBRPIOJTAxltlt_4wzOv0ZoN5Aeijiyv7w" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -62,20 +63,7 @@ export default function RootLayout({ children }) {
       <body className={nunitoSans.className}>
         <MobileOptimizer />
         {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
-        {!isMobile && (
-          <ColorBends
-            colors={["#ff0066", "#8800ff", "#00ccff"]}
-            rotation={30}
-            speed={0.15}
-            scale={1.0}
-            frequency={1.2}
-            warpStrength={0.8}
-            mouseInfluence={0.3}
-            parallax={0.3}
-            noise={0.05}
-            transparent
-          />
-        )}
+        {/* ColorBends disabled to prevent CPU heating */}
         <div style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </div>

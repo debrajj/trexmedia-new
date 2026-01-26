@@ -1,4 +1,4 @@
-import { assets } from "@/app/assets";
+import { assets } from "../app/assets";
 
 const {
   benefitIcon1,

@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Section from "@/components/Section";
 import Heading from "@/components/Heading";
-import { assets } from "@/app/assets";
+import { assets } from "../assets";
 import Image from "next/image";
 import ButtonGradient from "../assets/svg/ButtonGradient";
 

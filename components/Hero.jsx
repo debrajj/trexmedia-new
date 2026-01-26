@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import { HeroGeometric } from "../components/ui/shape-landing-hero";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import TechLogos from "./TechLogos";
 
@@ -11,7 +11,7 @@ const Hero = () => {
     // Delay animation start to prioritize initial page load
     const timer = setTimeout(() => {
       setShouldPlayAnimation(true);
-    }, 500);
+    }, 1000); // Increased delay
     return () => clearTimeout(timer);
   }, []);
 
@@ -35,7 +35,7 @@ const Hero = () => {
               loop={false}
               autoplay={true}
               className="w-full h-full"
-              speed={1}
+              speed={1.5}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1
@@ -54,7 +54,7 @@ const Hero = () => {
               loop={false}
               autoplay={true}
               className="w-full h-full"
-              speed={1}
+              speed={1.5}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PixelCard from "./ui/PixelCard";
-import { benefits } from "@/constants";
+import { benefits } from "../constants";
 
 const BenefitsSection = () => {
   return (

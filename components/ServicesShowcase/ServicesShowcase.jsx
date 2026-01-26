@@ -2,7 +2,7 @@
 import React from "react";
 import Section from "../Section";
 import Heading from "../Heading";
-import { ispServices } from "@/constants";
+import { ispServices } from "../../constants";
 import Button from "../Button/Button";
 import PixelCard from "../ui/PixelCard";
 

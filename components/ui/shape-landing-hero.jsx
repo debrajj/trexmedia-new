@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 
 export function HeroGeometric({
   badge = "New Release",
@@ -18,8 +18,8 @@ export function HeroGeometric({
         className
       )}
     >
-      {/* Animated geometric shapes - Hidden on low-end devices */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+      {/* Animated geometric shapes - Disabled to prevent CPU heating */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden">
         <motion.div
           className="absolute top-20 left-10 w-64 h-64 border border-cyan-500/20 rounded-full"
           animate={{
@@ -51,7 +51,7 @@ export function HeroGeometric({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
           className="inline-block mb-6"
         >
           <span className="inline-flex items-center px-2 md:px-4 py-1 md:py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 text-cyan-400 text-xs md:text-sm font-medium">
@@ -62,7 +62,7 @@ export function HeroGeometric({
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.05 }}
+          transition={{ duration: 0.3, delay: 0.05 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 font-heading"
         >
           <span className="block bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
@@ -76,7 +76,7 @@ export function HeroGeometric({
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto px-2 md:px-8"
         >
           <span className="md:hidden">{description}</span>

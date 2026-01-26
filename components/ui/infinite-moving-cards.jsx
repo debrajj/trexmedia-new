@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCards = ({
@@ -54,11 +54,11 @@ export const InfiniteMovingCards = ({
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
+        containerRef.current.style.setProperty("--animation-duration", "120s");
       } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
+        containerRef.current.style.setProperty("--animation-duration", "200s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty("--animation-duration", "300s");
       }
     }
   };

@@ -1,4 +1,4 @@
-import PlusSvg from "@/app/assets/svg/PlusSvg";
+import PlusSvg from "../../app/assets/svg/PlusSvg";
 import { useEffect, useState } from "react";
 import { MouseParallax } from "react-just-parallax";
 

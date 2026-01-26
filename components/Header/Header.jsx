@@ -1,5 +1,5 @@
-import { assets } from "@/app/assets";
-import { navigation } from "@/constants";
+import { assets } from "../../app/assets";
+import { navigation } from "../../constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

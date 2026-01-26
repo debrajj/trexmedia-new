@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { navigation } from "@/constants";
+import { navigation } from "../../constants";
 import Link from "next/link";
 import Button from "../Button/Button";
-import MenuSvg from "@/app/assets/svg/MenuSvg";
+import MenuSvg from "../../app/assets/svg/MenuSvg";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 const MobileMenu = () => {

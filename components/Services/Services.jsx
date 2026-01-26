@@ -2,8 +2,8 @@ import React from "react";
 import Section from "../Section";
 import Heading from "../Heading";
 import Image from "next/image";
-import { assets } from "@/app/assets";
-import { trexxITProServices, trexxITProServicesIcons } from "@/constants";
+import { assets } from "../../app/assets";
+import { trexxITProServices, trexxITProServicesIcons } from "../../constants";
 import Generating from "../Generating";
 import {
   Gradient,

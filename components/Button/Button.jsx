@@ -1,5 +1,5 @@
 "use client";
-import ButtonSvg from "@/app/assets/svg/ButtonSvg";
+import ButtonSvg from "../../app/assets/svg/ButtonSvg";
 import React from "react";
 
 const Button = ({ className, href, onClick, children, px, white }) => {

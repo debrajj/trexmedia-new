@@ -1,9 +1,9 @@
 import React from "react";
 import Section from "../Section";
 import Heading from "../Heading";
-import { roadmap } from "@/constants";
+import { roadmap } from "../../constants";
 import Image from "next/image";
-import { assets } from "@/app/assets";
+import { assets } from "../../app/assets";
 
 const Roadmap = () => {
   return (

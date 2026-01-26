@@ -1,5 +1,5 @@
 import React from "react";
-import SectionSvg from "@/app/assets/svg/SectionSvg";
+import SectionSvg from "../app/assets/svg/SectionSvg";
 const Section = ({
   children,
   id,

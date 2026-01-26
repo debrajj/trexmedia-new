@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Section from "../Section";
-import { socials } from "@/constants";
+import { socials } from "../../constants";
 import Image from "next/image";
-import { assets } from "@/app/assets";
+import { assets } from "../../app/assets";
 
 const Footer = () => {
   const scrollToTop = () => {

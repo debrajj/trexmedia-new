@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import LogoLoop from './ui/LogoLoop';
-import { assets } from '@/app/assets';
+import { assets } from '../app/assets';
 
 const TechLogos = ({ className }) => {
   const basePartners = [
@@ -38,7 +38,7 @@ const TechLogos = ({ className }) => {
       <div className="py-8">
         <LogoLoop
           logos={partners}
-          speed={20}
+          speed={300}
           direction="left"
           logoHeight={40}
           gap={40}

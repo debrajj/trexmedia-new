@@ -1,4 +1,4 @@
-import brackets from "@/app/assets/svg/Brackets";
+import brackets from "../../app/assets/svg/Brackets";
 import React from "react";
 
 const Tagline = ({ className, children }) => {

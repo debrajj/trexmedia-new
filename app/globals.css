@@ -23,7 +23,7 @@ body {
     will-change: auto;
 }
 
-/* Reduce animations on low-end devices */
+/* Reduce animations globally */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -33,6 +33,14 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Apply reduced motion to ALL devices by default - but exclude scroll animations */
+*:not(.logo-loop-container):not(.animate-scroll):not([class*="scroller"]),
+*:not(.logo-loop-container):not(.animate-scroll):not([class*="scroller"])::before,
+*:not(.logo-loop-container):not(.animate-scroll):not([class*="scroller"])::after {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.15s !important;
 }
 
 /* Reduce motion class for low-end devices */
@@ -45,39 +53,36 @@ body {
   scroll-behavior: auto !important;
 }
 
-/* Disable backdrop blur on low-end devices */
-.reduce-motion .glass,
-.reduce-motion .glass-strong {
+/* Disable backdrop blur globally to save CPU */
+.glass,
+.glass-strong,
+*[class*="backdrop-blur"] {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
 
-/* Disable shadows on low-end devices */
-.reduce-motion * {
+/* Disable shadows globally */
+* {
   box-shadow: none !important;
   text-shadow: none !important;
 }
 
-/* Disable transforms on low-end devices */
-.reduce-motion .hover-glow:hover {
-  transform: none !important;
-}
-
-/* Optimize will-change usage */
+/* Optimize will-change usage - disable by default */
 .will-change-transform {
-  will-change: transform;
+  will-change: auto;
 }
 
 .will-change-opacity {
-  will-change: opacity;
+  will-change: auto;
 }
 
-/* Remove will-change after animation */
+/* Remove will-change completely */
 .animate-fadeInUp,
 .animate-fadeIn,
 .animate-glow,
 .animate-float {
   animation-fill-mode: forwards;
+  will-change: auto;
 }
 
 .animate-fadeInUp:not(:hover),
@@ -87,20 +92,20 @@ body {
   will-change: auto;
 }
 
-/* GPU acceleration for better performance */
+/* GPU acceleration - DISABLED to save CPU/GPU */
 .gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+    transform: none;
+    backface-visibility: visible;
+    perspective: none;
 }
 
-/* Optimize heavy animations */
+/* Optimize heavy animations - DISABLED */
 .animate-pulse {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: none;
 }
 
 .animate-ping {
-    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+    animation: none;
 }
 
 
@@ -121,14 +126,12 @@ body {
 }
 
 * {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
 }
 
-/* Only enable smooth scroll on high-end devices */
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
-  * {
-    scroll-behavior: smooth;
-  }
+/* Disable smooth scroll completely to save CPU */
+html {
+    scroll-behavior: auto !important;
 }
 
 html {

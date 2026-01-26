@@ -3,23 +3,24 @@ import { useEffect } from 'react';
 
 const PerformanceOptimizer = () => {
   useEffect(() => {
-    // Smart low-end device detection
+    // Aggressive device detection - treat ALL devices as needing optimization
     const isLowEndDevice = () => {
       const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
       const slowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.effectiveType === '3g');
-      const lowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
-      const lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+      const lowMemory = navigator.deviceMemory && navigator.deviceMemory < 8;
+      const lowCores = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 8;
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isWindows = /Windows/i.test(navigator.userAgent);
       
-      // Only treat as low-end if multiple conditions are met
-      return slowConnection || (lowMemory && lowCores) || isMobile;
+      // Treat most devices as low-end to prevent heating
+      return slowConnection || lowMemory || lowCores || isMobile || isWindows;
     };
 
     const isLowEnd = isLowEndDevice();
 
     // Aggressive performance optimizations for low-end devices
     if (isLowEnd) {
-      document.documentElement.style.setProperty('--animation-duration', '0.15s');
+      // Don't override --animation-duration as it affects scroll animations
       document.documentElement.style.setProperty('--transition-duration', '0.15s');
       
       // Add reduced motion class

@@ -1,8 +1,8 @@
 import React from "react";
 import Section from "../Section";
-import { collabApps, collabContent, collabText } from "@/constants";
+import { collabApps, collabContent, collabText } from "../../constants";
 import Image from "next/image";
-import { assets } from "@/app/assets";
+import { assets } from "../../app/assets";
 import Button from "../Button/Button";
 import { LeftCurve, RightCurve } from "../design/Collaboration";
 

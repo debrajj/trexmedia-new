@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Section from "../Section";
-import { assets } from "@/app/assets";
+import { assets } from "../../app/assets";
 import Image from "next/image";
 import AnimatedCounter from "../AnimatedCounter";
 

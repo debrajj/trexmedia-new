@@ -1,4 +1,4 @@
-import { companyLogos } from "@/constants";
+import { companyLogos } from "../constants";
 import React from "react";
 
 const CompanyLogos = ({ className }) => {

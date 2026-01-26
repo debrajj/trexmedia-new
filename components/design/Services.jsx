@@ -1,4 +1,4 @@
-import ChatBubbleWing from "@/app/assets/svg/ChatBubbleWing";
+import ChatBubbleWing from "../../app/assets/svg/ChatBubbleWing";
 import { assets } from "../../app/assets";
 import Image from "next/image";
 

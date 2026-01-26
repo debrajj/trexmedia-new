@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { ispServices } from "@/constants";
+import { ispServices } from "../constants";
 
 const ServiceCard = ({ service, index }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [shouldPlay, setShouldPlay] = useState(false);
   const cardRef = useState(null);
   
   // Local Lottie files
@@ -22,6 +23,14 @@ const ServiceCard = ({ service, index }) => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  
+  useEffect(() => {
+    if (isInView) {
+      // Delay animation to reduce CPU load
+      const timer = setTimeout(() => setShouldPlay(true), 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   return (
     <motion.div
@@ -29,13 +38,10 @@ const ServiceCard = ({ service, index }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "100px" }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
+      transition={{ duration: 0.2, delay: index * 0.03 }}
       onViewportEnter={() => setIsInView(true)}
       className="group relative cursor-target"
     >
-      {/* Glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-color-1/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
       {/* Card */}
       <div className="relative bg-n-8/80 backdrop-blur-sm border border-n-6 rounded-2xl p-8 h-full transition-colors duration-200 group-hover:border-color-1/50">
         {/* Launching Soon Badge */}
@@ -47,14 +53,15 @@ const ServiceCard = ({ service, index }) => {
           </div>
         )}
 
-        {/* Lottie Animation - Only load when in view */}
-        <div className="w-24 h-24 mx-auto mb-6 transition-transform duration-200">
-          {isMounted && isInView && (
+        {/* Lottie Animation - Only load when in view and play once */}
+        <div className="w-24 h-24 mx-auto mb-6">
+          {isMounted && shouldPlay && (
             <DotLottieReact
               src={lottieUrls[service.id]}
               loop={false}
-              autoplay={false}
+              autoplay={true}
               className="w-full h-full"
+              speed={2}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1
@@ -64,7 +71,7 @@ const ServiceCard = ({ service, index }) => {
         </div>
         
         {/* Title */}
-        <h3 className="h5 text-n-1 mb-3 text-center group-hover:text-color-1 transition-colors duration-300">
+        <h3 className="h5 text-n-1 mb-3 text-center group-hover:text-color-1 transition-colors duration-200">
           {service.title}
         </h3>
         
@@ -72,9 +79,6 @@ const ServiceCard = ({ service, index }) => {
         <p className="body-2 text-n-3 text-center">
           {service.description}
         </p>
-
-        {/* Decorative corner */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-color-1/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
     </motion.div>
   );
