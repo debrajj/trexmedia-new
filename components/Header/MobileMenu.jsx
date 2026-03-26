@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navigation } from "../../constants";
 import Link from "next/link";
 import Button from "../Button/Button";
@@ -9,15 +9,25 @@ import { disablePageScroll, enablePageScroll } from "scroll-lock";
 const MobileMenu = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
 
+  const closeNavigation = () => {
+    setOpenNavigation(false);
+    enablePageScroll();
+  };
+
   const toggleNavigation = () => {
     if (openNavigation) {
-      setOpenNavigation(false);
-      enablePageScroll();
+      closeNavigation();
     } else {
       setOpenNavigation(true);
       disablePageScroll();
     }
   };
+
+  useEffect(() => {
+    return () => {
+      enablePageScroll();
+    };
+  }, []);
 
   return (
     <>
@@ -41,7 +51,7 @@ const MobileMenu = () => {
               <Link
                 href={item.url}
                 key={item.id}
-                onClick={() => setOpenNavigation(false)}
+                onClick={closeNavigation}
                 className="cursor-pointer uppercase text-lg text-n-1 transition-colors hover:text-color-1 py-3 px-6 text-center"
                 style={{ fontFamily: "Ubuntu, sans-serif", fontWeight: 500 }}
               >

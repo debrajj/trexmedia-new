@@ -36,7 +36,7 @@ const Home = () => {
         <link rel="preload" href="/mobile_hero.lottie" as="fetch" />
         <link rel="preload" href="/lottie/camera.lottie" as="fetch" />
       </Head>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-x-hidden">
         <Header />
         <Hero />
         <Stats />

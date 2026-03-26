@@ -10,7 +10,7 @@ import ButtonGradient from "../assets/svg/ButtonGradient";
 const PricingPage = () => {
   return (
     <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-x-hidden">
         <Header />
         
         <Section className="pt-0" crosses>
@@ -44,18 +44,18 @@ const PricingPage = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                       {/* Primary Call Button */}
                       <a 
-                        href="tel:+919876543210" 
+                        href="tel:+919707237225" 
                         className="group inline-flex items-center gap-3 bg-gradient-to-r from-color-1 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-color-1/25"
                       >
                         <svg className="w-6 h-6 group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        Call Now: +91 98765 43210
+                        Call Now: +91 97072 37225
                       </a>
                       
                       {/* Secondary WhatsApp Button */}
                       <a 
-                        href="https://wa.me/919876543210?text=Hi, I'm interested in your internet plans" 
+                        href="https://wa.me/919707237225?text=Hi, I'm interested in your internet plans" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-3 bg-green-500 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:bg-green-600 hover:scale-105"

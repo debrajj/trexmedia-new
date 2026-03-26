@@ -82,10 +82,10 @@ const BenefitIcon = ({ type, id }) => {
     scalable: (
       <svg className="w-full h-full" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
-          <rect x="12" y="36" width="10" height="16" rx="2" fill={`url(#${gradientId})`} className="animate-[pulse_2s_ease-in-out_infinite]" />
-          <rect x="27" y="28" width="10" height="24" rx="2" fill={`url(#${gradientId})`} className="animate-[pulse_2s_ease-in-out_infinite_0.2s]" />
-          <rect x="42" y="16" width="10" height="36" rx="2" fill={`url(#${gradientId})`} className="animate-[pulse_2s_ease-in-out_infinite_0.4s]" />
-          <path d="M48 12L52 16L48 20" stroke="#03BFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce" />
+          <rect x="12" y="36" width="10" height="16" rx="2" fill={`url(#${gradientId})`} />
+          <rect x="27" y="28" width="10" height="24" rx="2" fill={`url(#${gradientId})`} />
+          <rect x="42" y="16" width="10" height="36" rx="2" fill={`url(#${gradientId})`} />
+          <path d="M48 12L52 16L48 20" stroke="#03BFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </g>
         <defs>
           <linearGradient id={gradientId} x1="0%" y1="100%" x2="0%" y2="0%">
@@ -132,7 +132,7 @@ const Benefits = () => {
             className="md:text-center md:max-w-md lg:max-w-2xl"
             title="Why TREXX IT PRO?"
           />
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-10">
             {benefits.map((item, index) => (
               <PixelCard
                 key={item.id}

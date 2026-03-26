@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 
 const PricingList = () => {
   const [activeTab, setActiveTab] = useState("unlimited");
@@ -160,9 +159,10 @@ const PricingList = () => {
       </div>
 
       {/* Horizontal Table - Desktop */}
-      <div className="hidden lg:block overflow-x-auto">
+      <div className="hidden lg:block">
         <div className="bg-n-8 border border-n-6 rounded-3xl overflow-hidden">
-          <table className="w-full">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px]">
             <thead>
               <tr className="bg-gradient-to-r from-color-1/10 to-purple-500/10 border-b border-n-6">
                 <th className="text-left py-6 px-6 text-n-1 font-bold text-sm uppercase tracking-wider">
@@ -269,135 +269,84 @@ const PricingList = () => {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Horizontal Scrollable Table */}
-      <div className="lg:hidden overflow-x-auto -mx-4 px-4">
-        <div className="bg-n-8 border border-n-6 rounded-2xl overflow-hidden min-w-[800px]">
-          <table className="w-full">
-            <thead>
-              <tr className="bg-gradient-to-r from-color-1/10 to-purple-500/10 border-b border-n-6">
-                <th className="text-left py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Plan ID
-                </th>
-                <th className="text-left py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Speed
-                </th>
-                <th className="text-left py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Data
-                </th>
-                <th className="text-left py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Validity
-                </th>
-                <th className="text-left py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Price
-                </th>
-                <th className="text-center py-4 px-4 text-n-1 font-bold text-xs uppercase tracking-wider">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentPlans.map((plan) => (
-                <tr 
-                  key={plan.id}
-                  className={`border-b border-n-6 transition-all duration-300 ${
-                    plan.popular ? 'bg-gradient-to-r from-color-1/5 to-purple-500/5' : ''
+      {/* Mobile Cards */}
+      <div className="lg:hidden space-y-4">
+        {currentPlans.map((plan) => (
+          <div
+            key={plan.id}
+            className={`bg-n-8 border border-n-6 rounded-2xl p-4 ${
+              plan.popular ? "bg-gradient-to-r from-color-1/10 to-purple-500/10 border-color-1/30" : ""
+            }`}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-n-3">Plan ID</span>
+                  <span className="text-n-1 font-bold text-base">{plan.planId}</span>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {plan.popular && (
+                    <span className="bg-gradient-to-r from-color-1 to-purple-500 text-white px-2 py-0.5 rounded-full text-[10px] font-semibold">
+                      Popular
+                    </span>
+                  )}
+                  {plan.ott && (
+                    <span className="bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full text-[10px] font-medium">
+                      OTT
+                    </span>
+                  )}
+                </div>
+              </div>
+              <a
+                href={`https://wa.me/919707237225?text=Hi,%20I'm%20interested%20in%20Plan%20ID%20${plan.planId}%20-%20${plan.speed}Mbps%20${plan.data}%20plan`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button
+                  className={`px-4 py-2 rounded-lg font-semibold text-xs transition-all duration-300 whitespace-nowrap ${
+                    plan.popular
+                      ? "bg-gradient-to-r from-color-1 to-purple-500 text-white"
+                      : "bg-n-7 text-n-1 border border-color-1/20"
                   }`}
                 >
-                  {/* Plan ID */}
-                  <td className="py-4 px-4">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-n-1 font-semibold text-base">{plan.planId}</span>
-                      <div className="flex flex-wrap gap-1">
-                        {plan.popular && (
-                          <span className="bg-gradient-to-r from-color-1 to-purple-500 text-white px-1.5 py-0.5 rounded-full text-[10px] font-semibold">
-                            Popular
-                          </span>
-                        )}
-                        {plan.ott && (
-                          <span className="bg-purple-500/20 text-purple-400 px-1.5 py-0.5 rounded-full text-[10px] font-medium">
-                            OTT
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </td>
+                  Choose Plan
+                </button>
+              </a>
+            </div>
 
-                  {/* Speed */}
-                  <td className="py-4 px-4">
-                    <div className="flex flex-col">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-lg font-bold text-n-1">{plan.speed}</span>
-                        <span className="text-xs text-n-3">Mbps</span>
-                      </div>
-                      <span className="text-[10px] text-n-4">(upto)</span>
-                    </div>
-                  </td>
-
-                  {/* Data */}
-                  <td className="py-4 px-4">
-                    <span className={`text-sm font-bold ${
-                      plan.data === "UNLIMITED" 
-                        ? 'bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent' 
-                        : 'text-n-1'
-                    }`}>
-                      {plan.data}
-                    </span>
-                  </td>
-
-                  {/* Validity */}
-                  <td className="py-4 px-4">
-                    <div className="flex flex-col">
-                      <span className="text-n-1 font-semibold text-base">{plan.validity}</span>
-                      <span className="text-[10px] text-n-3">Days</span>
-                    </div>
-                  </td>
-
-                  {/* Price */}
-                  <td className="py-4 px-4">
-                    <div className="flex flex-col">
-                      <div className="flex items-baseline gap-0.5">
-                        <span className="text-xs font-semibold text-n-3">₹</span>
-                        <span className="text-lg font-black text-n-1">{plan.price}</span>
-                      </div>
-                      <span className="text-[10px] text-n-4">Inc +18%</span>
-                    </div>
-                  </td>
-
-                  {/* Action */}
-                  <td className="py-4 px-4">
-                    <a 
-                      href={`https://wa.me/919707237225?text=Hi,%20I'm%20interested%20in%20Plan%20ID%20${plan.planId}%20-%20${plan.speed}Mbps%20${plan.data}%20plan`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className={`px-4 py-2 rounded-lg font-semibold text-xs transition-all duration-300 whitespace-nowrap ${
-                        plan.popular
-                          ? 'bg-gradient-to-r from-color-1 to-purple-500 text-white'
-                          : 'bg-n-7 text-n-1 border border-color-1/20'
-                      }`}>
-                        Choose Plan
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        
-        {/* Scroll Hint */}
-        <div className="flex items-center justify-center gap-2 mt-4 text-n-4">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-          <span className="text-xs">Swipe to see all details</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </div>
+            <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="rounded-xl bg-n-7/70 p-3 border border-n-6/70">
+                <p className="text-[10px] uppercase tracking-wide text-n-4 mb-1">Speed</p>
+                <p className="text-n-1 font-bold text-lg leading-none">{plan.speed}<span className="text-xs text-n-3 ml-1">Mbps</span></p>
+              </div>
+              <div className="rounded-xl bg-n-7/70 p-3 border border-n-6/70">
+                <p className="text-[10px] uppercase tracking-wide text-n-4 mb-1">Data</p>
+                <p
+                  className={`font-bold text-base leading-none ${
+                    plan.data === "UNLIMITED"
+                      ? "bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent"
+                      : "text-n-1"
+                  }`}
+                >
+                  {plan.data}
+                </p>
+              </div>
+              <div className="rounded-xl bg-n-7/70 p-3 border border-n-6/70">
+                <p className="text-[10px] uppercase tracking-wide text-n-4 mb-1">Validity</p>
+                <p className="text-n-1 font-bold text-base leading-none">{plan.validity} Days</p>
+              </div>
+              <div className="rounded-xl bg-n-7/70 p-3 border border-n-6/70">
+                <p className="text-[10px] uppercase tracking-wide text-n-4 mb-1">Price</p>
+                <p className="text-n-1 font-black text-base leading-none">₹{plan.price}</p>
+                <p className="text-[10px] text-n-4 mt-1">Inc +18% GST</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Info Note */}

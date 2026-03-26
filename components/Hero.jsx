@@ -11,7 +11,7 @@ const Hero = () => {
     // Delay animation start to prioritize initial page load
     const timer = setTimeout(() => {
       setShouldPlayAnimation(true);
-    }, 1000); // Increased delay
+    }, 2000); // Further increased delay for mobile
     return () => clearTimeout(timer);
   }, []);
 
@@ -35,7 +35,7 @@ const Hero = () => {
               loop={false}
               autoplay={true}
               className="w-full h-full"
-              speed={1.5}
+              speed={1.0}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1
@@ -54,7 +54,7 @@ const Hero = () => {
               loop={false}
               autoplay={true}
               className="w-full h-full"
-              speed={1.5}
+              speed={1.0}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1

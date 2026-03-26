@@ -27,9 +27,6 @@ const TechLogos = ({ className }) => {
     },
   ];
 
-  // Duplicate logos multiple times for seamless infinite scroll
-  const partners = [...basePartners, ...basePartners, ...basePartners];
-
   return (
     <div className={className}>
       <h5 className="tagline mb-6 text-center text-n-1/50">
@@ -37,12 +34,12 @@ const TechLogos = ({ className }) => {
       </h5>
       <div className="py-8">
         <LogoLoop
-          logos={partners}
-          speed={300}
+          logos={basePartners}
+          speed={40}
           direction="left"
           logoHeight={40}
           gap={40}
-          pauseOnHover={true}
+          pauseOnHover={false}
           scaleOnHover={true}
           fadeOut={true}
           fadeOutColor="#000000"
