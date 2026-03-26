@@ -1,18 +1,35 @@
+"use client";
 import { assets } from "../../app/assets";
 import { navigation } from "../../constants";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import MobileMenu from "./MobileMenu";
 
 const Header = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Add entrance animation after component mounts
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <div className="bg-n-8/70 backdrop-blur-xl w-full left-0 fixed top-0 z-50 border-n-6/50 border-b lg:bg-n-8/70 lg:backdrop-blur-xl shadow-lg shadow-n-8/50">
+      <div className={`bg-n-8/70 backdrop-blur-xl w-full left-0 fixed top-0 z-50 border-n-6/50 border-b lg:bg-n-8/70 lg:backdrop-blur-xl shadow-lg shadow-n-8/50 transition-all duration-500 ${
+        isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}>
         <div className="flex items-center px-8 lg:px-12 xl:px-20 py-1 lg:py-0">
-          <Link href="/" className="w-[4rem] block xl:mr-8">
-            <Image src={assets.r1} alt="Trexx Media" width={50} height={13} className="object-contain" />
+          <Link href="/" className="w-[4rem] block xl:mr-8 group">
+            <Image 
+              src={assets.r1} 
+              alt="Trexx Media" 
+              width={50} 
+              height={13} 
+              className="object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(3,191,255,0.3)] w-auto h-auto" 
+            />
           </Link>
           <nav className="hidden lg:flex lg:static lg:mx-auto lg:bg-transparent">
             <div className="flex flex-col lg:flex-row m-auto z-2 relative">

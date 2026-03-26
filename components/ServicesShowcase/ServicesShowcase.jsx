@@ -145,7 +145,7 @@ const ServicesShowcase = () => {
               )}
               
               <div className="relative p-4 md:p-8 h-full flex flex-col">
-                <div className="w-12 h-12 md:w-20 md:h-20 mb-2 md:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 md:w-20 md:h-20 mb-2 md:mb-4 mx-auto group-hover:scale-105 transition-transform duration-500">
                   <ServiceIcon type={service.icon} id={service.id} />
                 </div>
                 <h3 className="text-sm md:h5 mb-2 md:mb-3 text-center">{service.title}</h3>

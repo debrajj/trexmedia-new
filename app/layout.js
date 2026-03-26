@@ -56,6 +56,14 @@ export default function RootLayout({ children }) {
                   navigator.serviceWorker.register('/sw.js');
                 });
               }
+              
+              // Remove browser extension attributes that cause React warnings
+              setTimeout(() => {
+                const body = document.body;
+                if (body && body.hasAttribute('cz-shortcut-listen')) {
+                  body.removeAttribute('cz-shortcut-listen');
+                }
+              }, 100);
             `,
           }}
         />

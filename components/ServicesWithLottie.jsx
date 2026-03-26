@@ -38,7 +38,7 @@ const ServiceCard = ({ service, index }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "100px" }}
-      transition={{ duration: 0.2, delay: index * 0.03 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       onViewportEnter={() => setIsInView(true)}
       className="group relative cursor-target"
     >
@@ -61,7 +61,7 @@ const ServiceCard = ({ service, index }) => {
               loop={false}
               autoplay={true}
               className="w-full h-full"
-              speed={2}
+              speed={1.0}
               useFrameInterpolation={false}
               renderConfig={{
                 devicePixelRatio: 1

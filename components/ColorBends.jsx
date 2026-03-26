@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
 
@@ -119,8 +119,15 @@ export default function ColorBends({
   const pointerTargetRef = useRef(new THREE.Vector2(0, 0));
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
   const pointerSmoothRef = useRef(8);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
     console.log('ColorBends: Initializing with colors:', colors);
     const container = containerRef.current;
     
@@ -255,7 +262,7 @@ export default function ColorBends({
         container.removeChild(renderer.domElement);
       }
     };
-  }, [frequency, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength]);
+  }, [frequency, mouseInfluence, noise, parallax, scale, speed, transparent, warpStrength, isMounted]);
 
   useEffect(() => {
     const material = materialRef.current;
@@ -322,16 +329,18 @@ export default function ColorBends({
     <div 
       ref={containerRef} 
       className={`color-bends-container ${className}`}
-      style={{
-        ...style,
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: 0,
-        pointerEvents: 'none'
-      }}
+      style={
+        isMounted ? {
+          ...style,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0,
+          pointerEvents: 'none'
+        } : {}
+      }
     />
   );
 }

@@ -17,7 +17,7 @@ const ShopPage = () => {
               
               {/* Launching Soon Badge */}
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-color-1/10 to-purple-500/10 border border-color-1/20 rounded-full mb-8">
-                <div className="w-3 h-3 bg-color-1 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-color-1 rounded-full"></div>
                 <span className="text-color-1 text-sm font-medium">LAUNCHING SOON</span>
               </div>
 

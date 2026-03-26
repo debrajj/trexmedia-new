@@ -11,7 +11,7 @@ class Pixel {
     this.color = color;
     this.speed = this.getRandomValue(0.1, 0.9) * speed;
     this.size = 0;
-    this.sizeStep = Math.random() * 0.4;
+    this.sizeStep = Math.random() * 0.1; // Much smaller size steps
     this.minSize = 0.5;
     this.maxSizeInteger = 2;
     this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger);
@@ -69,9 +69,9 @@ class Pixel {
       this.isReverse = false;
     }
     if (this.isReverse) {
-      this.size -= this.speed;
+      this.size -= this.speed * 0.1; // Much slower shimmer
     } else {
-      this.size += this.speed;
+      this.size += this.speed * 0.1; // Much slower shimmer
     }
   }
 }
@@ -94,28 +94,28 @@ const VARIANTS = {
   default: {
     activeColor: null,
     gap: 5,
-    speed: 35,
+    speed: 15,
     colors: '#f8fafc,#f1f5f9,#cbd5e1',
     noFocus: false
   },
   blue: {
     activeColor: '#e0f2fe',
     gap: 10,
-    speed: 25,
+    speed: 12,
     colors: '#e0f2fe,#7dd3fc,#0ea5e9',
     noFocus: false
   },
   yellow: {
     activeColor: '#fef08a',
     gap: 3,
-    speed: 20,
+    speed: 10,
     colors: '#fef08a,#fde047,#eab308',
     noFocus: false
   },
   pink: {
     activeColor: '#fecdd3',
     gap: 6,
-    speed: 80,
+    speed: 25,
     colors: '#fecdd3,#fda4af,#e11d48',
     noFocus: true
   }
@@ -243,8 +243,8 @@ export default function PixelCard({
   };
 
   useEffect(() => {
-    // Skip pixel animation on mobile for better performance
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    // Skip pixel animation on mobile completely
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
       return;
     }
 

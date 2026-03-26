@@ -68,7 +68,7 @@ const MobileMenu = () => {
       </nav>
       
       <Button
-        className="ml-auto lg:hidden"
+        className="ml-auto lg:hidden transition-transform duration-200 hover:scale-110 active:scale-95"
         px="px-3"
         onClick={toggleNavigation}
       >
