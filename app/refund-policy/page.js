@@ -87,8 +87,8 @@ const RefundPolicy = () => {
                   To request a refund or discuss service credits:
                 </p>
                 <div className="mt-4 text-n-3">
-                  <p>Email: billing@trexxnetworks.com</p>
-                  <p>Phone: +91 98765 43210</p>
+                  <p>Email: support@trexxitpro.net</p>
+                  <p>Phone: +91 9707237225</p>
                   <p>Support Hours: 24/7</p>
                   <p>Response Time: Within 24 hours</p>
                 </div>

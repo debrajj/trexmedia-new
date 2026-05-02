@@ -46,6 +46,11 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        
+        {/* Favicon Links */}
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#03BFFF" />
         <script

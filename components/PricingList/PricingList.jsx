@@ -8,7 +8,7 @@ const PricingList = () => {
     {
       id: "1",
       planId: "1",
-      speed: "30",
+      speed: "40",
       data: "2TB",
       validity: "30",
       price: "411.82",

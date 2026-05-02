@@ -98,7 +98,7 @@ export const ispServices = [
     description: "Professional installation and configuration of CCTV surveillance systems for complete security.",
     icon: "camera",
     buttonText: "Get Quote",
-    buttonLink: "https://wa.me/1234567890?text=Hi,%20I%20need%20a%20quote%20for%20CCTV%20Camera%20Setup",
+    buttonLink: "https://wa.me/919707237225?text=Hi,%20I%20need%20a%20quote%20for%20CCTV%20Camera%20Setup",
     isExternal: true,
   },
   {
@@ -121,7 +121,7 @@ export const ispServices = [
     description: "High-performance dedicated servers optimized for web hosting and development.",
     icon: "code",
     buttonText: "Let's Discuss",
-    buttonLink: "https://wa.me/1234567890?text=Hi,%20I%20want%20to%20discuss%20Web%20Services",
+    buttonLink: "https://wa.me/919707237225?text=Hi,%20I%20want%20to%20discuss%20Web%20Services",
     isExternal: true,
   },
   {

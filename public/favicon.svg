@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#03BFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="192" height="192" fill="#0D0C15"/>
+  <!-- Gradient Circle -->
+  <circle cx="96" cy="96" r="90" fill="url(#grad1)" opacity="0.1"/>
+  <!-- Logo Circle -->
+  <circle cx="96" cy="96" r="75" fill="none" stroke="url(#grad1)" stroke-width="3"/>
+  <!-- Inner Design -->
+  <g transform="translate(96, 96)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="30" fill="url(#grad1)"/>
+    <text x="0" y="12" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#0D0C15" text-anchor="middle" dominant-baseline="middle">T</text>
+  </g>
+</svg>

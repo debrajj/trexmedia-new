@@ -87,8 +87,8 @@ const TermsOfService = () => {
                   For questions about these terms, contact us:
                 </p>
                 <div className="mt-4 text-n-3">
-                  <p>Email: legal@trexxnetworks.com</p>
-                  <p>Phone: +91 98765 43210</p>
+                  <p>Email: support@trexxitpro.net</p>
+                  <p>Phone: +91 9707237225</p>
                   <p>Address: Trexx Networks, Guwahati, Assam, India</p>
                 </div>
               </div>

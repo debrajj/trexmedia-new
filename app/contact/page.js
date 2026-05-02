@@ -76,7 +76,7 @@ const ContactPage = () => {
                       <div>
                         <h4 className="h6 mb-2">Email</h4>
                         <p className="body-2 text-n-3">
-                          networkstrexx@gmail.com<br />
+                          support@trexxitpro.net<br />
                           For all inquiries and support
                         </p>
                       </div>
